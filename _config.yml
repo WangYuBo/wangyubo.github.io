@@ -1,6 +1,6 @@
 # Site settings
 title: 慕广陵的藏山阁
-SEOTitle: 慕广陵的博客 | WYB Blog
+SEOTitle: 慕广陵的藏山阁
 header-img: img/post-bg-desk.jpg
 email: freerunner@foxmail.com
 description: "Every failure is leading towards success."
@@ -63,8 +63,8 @@ kramdown:
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 1be64aca58218f66d13e                            #生成的clientID
-  clientSecret: b104add185b9c8ceff27a2e6083ebbf52d32d948    #生成的clientSecret
+  clientID: 895f6f62380e2dc262d8                            #生成的clientID
+  clientSecret: a41665f5af72e9a2f28724a88bfceb2597e0949f    #生成的clientSecret
   repo: wangyubo.github.io    #仓库名称
   owner: wangyubo    #github用户名
   admin: wangyubo
@@ -79,7 +79,7 @@ ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
 # Google Analytics
 ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
-ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_domain: muguangling.com               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
