@@ -1,18 +1,18 @@
 # Site settings
-title: WYB Blog
-SEOTitle: 王钰博的博客 | WYB Blog
+title: 慕广陵的藏山阁
+SEOTitle: 慕广陵的博客 | WYB Blog
 header-img: img/post-bg-desk.jpg
 email: freerunner@foxmail.com
 description: "Every failure is leading towards success."
-keyword: "wby, wangyubo Blog, 王钰博的博客, wangyubo, 文化产业, 文产, 古琴"
-url: "http://wangyubo.github.io"          # your host, for absolute URL
+keyword: "wby, wangyubo Blog, 慕广陵的博客, wangyubo, 文化产业, 文产, 古琴"
+url: "http://muguangling.com"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/WangYuBo/wangyubo.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/mgl.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -58,7 +58,7 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus_username: qiubaiying
+# disqus_username: 
 
 # Gitalk
 gitalk:
@@ -100,16 +100,13 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "huyuning",
+        title: "胡裕宁",
         href: "www.huyuning.com"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "简书",
+        href: ""
     },{
-        title: "Apple",
-        href: "https://apple.com"
-    },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "慕广陵的豆瓣",
+        href: "https://www.douban.com/people/Free_Runner/"
     }
 ]
