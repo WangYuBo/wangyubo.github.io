@@ -110,3 +110,5 @@ friends: [
         href: "https://www.douban.com/people/Free_Runner/"
     }
 ]
+
+theme: jekyll-theme-minimal
