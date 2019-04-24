@@ -1,4 +1,17 @@
-3认知写作第五期结束，开始旅途。
+---
+layout:     post
+title:      认知写作五期结束
+subtitle:   写作清单
+date:       2018-04-05
+author:     慕广陵
+header-img: img/post-bg-ios9-web.jpg
+catalog: true
+tags:
+    - 写作
+    - 清单
+---
+
+认知写作第五期结束，开始新旅途。
 这一阶段，刻意练习故事、逻辑、文采。
 1. 故事：   练习用 五种视角写故事
 
