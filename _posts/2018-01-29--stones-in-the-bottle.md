@@ -1,12 +1,19 @@
  --- 
  
  layout:     post 
+ 
  title:      。。。 
+ 
  subtitle:   。。。
+ 
  date:       。。。
+ 
  author:     王钰博 
+ 
  header-img: img/190211_snow_3.jpg 
+ 
  catalog: true 
+ 
  tags: 
  
  --- 
