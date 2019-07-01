@@ -1,22 +1,15 @@
- --- 
- 
- layout:     post 
- 
- title:      。。。 
- 
- subtitle:   。。。
- 
- date:       。。。
- 
- author:     王钰博 
- 
- header-img: img/190211_snow_3.jpg 
- 
- catalog: true 
- 
- tags: 
- 
- --- 
+---
+layout:     post
+title:      2018年读书总结
+subtitle:   2018年读书总结
+date:       2019-02-10
+author:     王钰博
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 读书总结
+    - 年终
+---
  
 天地为逆旅，百代亦过客。茶馆里，正敲这篇文字的小伙子，人生已过到第二十八年头，从持续增长的中国人均寿命看，他人生三分之一已经过去。年华如离家的游子，一去经年。毛头小伙子变成了离不了保温杯的中年大叔。
 
