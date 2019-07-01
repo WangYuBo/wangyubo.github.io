@@ -15,7 +15,7 @@ sidebar-about-description: "Goals determine what you going to be!"
 sidebar-avatar: /img/mgl.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
-
+        
 # SNS settings
 RSS: false
 # weibo_username:     wangyubo
@@ -102,11 +102,5 @@ friends: [
     {
         title: "胡裕宁",
         href: "www.huyuning.com"
-    },{
-        title: "简书",
-        href: ""
-    },{
-        title: "慕广陵的豆瓣",
-        href: "https://www.douban.com/people/Free_Runner/"
     }
 ]
