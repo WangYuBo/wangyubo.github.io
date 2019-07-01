@@ -104,3 +104,5 @@ friends: [
         href: "www.huyuning.com"
     }
 ]
+
+theme: jekyll-theme-minimal
