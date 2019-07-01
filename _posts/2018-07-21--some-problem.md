@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 ## 一
 白云苍狗，沧海桑田。人生天地间，如白驹过隙。一个小问题：如何能中正安舒的走过这一辈子呢？
 

@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 ### 飓风起于青萍之末
 
 > 见小曰明。《道德经》第五十二章

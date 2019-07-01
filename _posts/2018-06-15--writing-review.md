@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 
 
 看＜一个悲伤的故事＞，尝试了写了双故事线，汇并到婚礼上是高潮，然而高潮不够高．读起来不够震撼，没有冲击力．

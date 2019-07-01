@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 ---
 layout:     post
 title:      认知写作五期结束
@@ -50,3 +60,16 @@ tags:
 | 名称 | 好的 | 坏的 |
 |:-:|:-:|:-:|
 ||灯塔、灯笼、太阳、山峰|信念|
+
+
+
+
+9. 平克写作八原则：
+Eliminate Metadiscourse ：砍掉元话语
+Don’t confuse the subject matter of the communication with your line of work：不要复杂主题
+Minimise Compulsive Hedging ：写作清晰给力，少用模糊词汇
+Avoid cliches like the plague：陈词滥调，如避蛇蝎
+By all means discuss abstract ideas, but avoid unnecessary abstract nouns ：抽象名词，远之；抽象概念，论之
+Remember: Nominalization is a dangerous weapon - 名词化是写作大凶器
+Adopt an active, conversational style：采用主动和互动风格
+But it’s okay to use the passive voice (sometimes) ：被动语态，并非洪水猛兽

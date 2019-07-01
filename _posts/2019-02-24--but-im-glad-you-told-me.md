@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 同理心与同情心
 
 一、

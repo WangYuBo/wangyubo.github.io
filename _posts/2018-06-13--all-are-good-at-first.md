@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 计划一百天。他刚开始每天都有，持续一个多月。后来两天一次，一个月不到，后来四天一次，停到了5.31号，第56次。
 我们是一个小组群里的，甲午临济听佛，一个四年前结下缘分的群。
 

@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 
 这两天在花间堂民宿共学，学习民俗相关的事情。我不做民宿，但文化与民宿是天然一对。以琴棋书画为代表的传统文化内容提供方，民宿好伙伴。
 

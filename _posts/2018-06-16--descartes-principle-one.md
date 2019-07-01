@@ -1,3 +1,13 @@
+ --- 
+ layout:     post 
+ title:      。。。 
+ subtitle:   。。。
+ date:       。。。
+ author:     王钰博 
+ header-img: img/190211_snow_3.jpg 
+ catalog: true 
+ tags: 
+ --- 
 笛卡尔在原则一中首先点明强调，
 
 研究的目的，应是指导我们的心灵，使它得以对于世上呈现的一切事物，形成确凿的、真实的判断。
