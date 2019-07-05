@@ -1,13 +1,13 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 送别，寻隐
+subtitle: 读书笔记
+date: 2018-12-02
+author: 王钰博 
+header-img: img/190211_snow_3.jpg 
+catalog: true 
+tags: 
+--- 
 
 ## 一
 
