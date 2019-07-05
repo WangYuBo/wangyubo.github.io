@@ -1,13 +1,15 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 《区分》第一章读书笔记
+subtitle:  
+date: 2018-08-03
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 读书笔记
+--- 
+
 ## 皮埃尔布迪厄
 布迪厄是二十世纪法国最伟大的人类学家、社会学家和思想家。他1930年生於法國南部庇里牛斯-大西洋省的小城当吉恩，父親是郵差。1954年通过哲学教师会考，进入巴黎高等师范学院。在法国高等师范学院就读期间，他避开当时蔚为主流的存在主义，反而跟随路易·皮埃尔·阿尔都塞、Gaston Bachelard和Georges Canguilhem这几位哲学家学习逻辑学跟科学哲学，选修Éric Weil教授的黑格尔的法哲学。
 

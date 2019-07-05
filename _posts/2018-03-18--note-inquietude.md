@@ -1,14 +1,17 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
-《身份的焦虑》读书笔记
+--- 
+layout:     post 
+title: 焦虑
+subtitle: 《身份的焦虑》读书笔记
+date: 2018-03-18
+author:     钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 读书笔记
+    
+--- 
+
+
 ### 人为什么会焦虑？
 从经济、名声、性、爱三方面引出。其中爱包括性爱与世界之爱。
 

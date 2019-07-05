@@ -1,13 +1,16 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 三个牛人
+subtitle:  
+date: 2018-02-18
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 人物
+--- 
+
+
 历史从不重复，历史总是押韵。以史为镜，可以知兴替。人生亦是如此，以人为镜，可以明得失。
 
 古人经历过的内心挣扎与人际经营，现代人不会省去；反之，现代人在纷繁世事里的困惑，能从古人的经历中找到解答。

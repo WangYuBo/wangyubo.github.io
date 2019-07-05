@@ -1,13 +1,15 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 明
+subtitle:  
+date: 2018-05-09
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 修身养性
+--- 
+
 ### 飓风起于青萍之末
 
 > 见小曰明。《道德经》第五十二章

@@ -1,13 +1,16 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 技术可控么？
+subtitle:  
+date: 2018-08-15
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 读书笔记
+    - AI
+--- 
+
 ## 技术可控么？
 这在科技哲学领域是一个热门话题。自古至今，讨论纷纭。围棋被视为人类智力的最后堡垒，也被AlaphGo攻克。引发人们又一次大讨论和怀疑，“机器的智力超过了人类，人类未来会怎样呢？”人类不仅担心遥远的未来，多少人已经开始担心自己的工作不久就会被AI取代了呢？更深层的担忧，AI智力超过智力链顶端的人类，那么，AI还可以为人类所用么？会不会出现《终结者》或者《骇客帝国》里，人类被机器攻击，或被机器圈养的情况呢？
 

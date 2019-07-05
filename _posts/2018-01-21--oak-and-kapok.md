@@ -1,13 +1,13 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 橡树与木棉
+subtitle: 爱情问题
+date: 2018-01-21
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+--- 
  
 ### 亲密关系，是难上加难的修行
 男朋友/女朋友与你一起，一穷二白，住北五环一个20平的出租屋里，你们相依为命，相互鼓励，说我们早晚会长成参天大树，就不怕风吹雨打啦~ 你们此时并没有太多选择，你来创业打拼，我来操持内务，分工明确，携手前行。他加班深夜回来，你端上一碗热腾腾鸡蛋面安慰劳他的胃，暖了他的心。 小屋里飘着面香，盛满希望。

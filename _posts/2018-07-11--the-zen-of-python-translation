@@ -1,13 +1,14 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title:     Python之禅
+subtitle:  
+date:       
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+--- 
+ 
 Python 之禅 by Tim Peters　翻译：慕广陵
 
 优美好于丑陋。
@@ -26,6 +27,6 @@ Python 之禅 by Tim Peters　翻译：慕广陵
 虽然这条路开始可能没那么明显，因为你不是Python之父。
 做，好过不做，
 但未经三思还不如不做。
-如果你的方案难以理解，它不是个好方案。
-如果你的方案简单易懂，它有可能是个好方案。
+若你的方案难以理解，它不是个好方案。
+若你的方案简单易懂，它有可能是个好方案。
 命名空间是个绝妙主意，多多益善。

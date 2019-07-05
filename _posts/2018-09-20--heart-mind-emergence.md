@@ -1,13 +1,15 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 心，思想，能量
+subtitle:  
+date: 2018-09-20
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 修身养性
+--- 
+
 ## 心，意识，涌现
 
 什么是心？

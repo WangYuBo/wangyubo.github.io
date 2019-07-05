@@ -1,13 +1,14 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 如何安慰人
+subtitle: 
+date:      2019-02-24
+author:     王钰博 
+header-img: img/190211_snow_3.jpg 
+catalog: true 
+tags: 
+--- 
+
 同理心与同情心
 
 一、

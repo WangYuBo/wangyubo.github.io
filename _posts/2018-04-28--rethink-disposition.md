@@ -1,13 +1,15 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 重读《乡土中国》
+subtitle:  
+date: 2018-04-28
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 读书笔记
+--- 
+
  最近重读《乡土中国》，费孝通从社会学角度看三四十年代某些乡村社会。读这本书，有这些命题可供思考：
 
 1.从现代社会看，农耕文明的乡土社会，必然有其局限，在社会学方面，都有哪些可以从乡土社会可借鉴哪些又必须舍弃的？

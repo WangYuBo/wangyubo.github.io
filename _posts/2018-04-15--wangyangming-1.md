@@ -1,13 +1,15 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 王阳明与王二小
+subtitle:  
+date: 2018-04-15
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 人物
+--- 
+
 王阳明影响极其大，蒋介石、东乡平八郎等都是其崇拜者。
 
 王二小是一个21世纪迷途青年，比起阳明心学，他更好奇王阳明是怎样成为王阳明的。

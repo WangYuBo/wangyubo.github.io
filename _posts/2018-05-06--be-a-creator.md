@@ -1,13 +1,14 @@
- --- 
- layout:     post 
- title:      。。。 
- subtitle:   。。。
- date:       。。。
- author:     王钰博 
- header-img: img/190211_snow_3.jpg 
- catalog: true 
- tags: 
- --- 
+--- 
+layout:     post 
+title: 成为创造者
+subtitle:  
+date: 2018-05-06
+author:     王钰博 
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+--- 
+
 ### 生活不仅是把锤子，还是个顽劣的厨子
 
 在帝都，日子过的很快。或者根本没有日子，只有赶地铁、上班、下班、加班、睡觉，一觉醒，春天过去了，夏天过去了，秋风起了，冬雪还没下，雾霾粘稠浓厚。
