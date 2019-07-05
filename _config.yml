@@ -4,7 +4,7 @@ SEOTitle: 慕广陵的藏山阁
 header-img: img/post-bg-desk.jpg
 email: freerunner@foxmail.com
 description: "Every failure is leading towards success."
-keyword: "wby, wangyubo Blog, 慕广陵的博客, wangyubo, 文化产业, 文产, 古琴"
+keyword: "wby, wangyubo Blog, 慕广陵的博客, wangyubo, 钰博， 修身养性， 文化产业, 文产, 古琴"
 url: "http://muguangling.com"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/WangYuBo/wangyubo.github.io.git" # you code repository
@@ -17,7 +17,7 @@ sidebar-avatar: /img/mgl.jpg      # use absolute URL, seeing it's used in both `
 
         
 # SNS settings
-RSS: false
+RSS: true
 # weibo_username:     wangyubo
 zhihu_username:     wangbyubo
 github_username:    wangyubo
@@ -32,7 +32,7 @@ douban_ussername:   Free_Runner
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 permalink: pretty
-paginate: 10
+paginate: 20
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
@@ -96,6 +96,10 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 
+---
+layout:     keynote
+iframe:     "http://muguangling.com/2019/02/10/stones-in-the-bottle/"
+---
 
 # Friends
 friends: [
