@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      日常一撇
+title:      日常一瞥
 subtitle:   2019-03-17
 date:       2019-02-10
 author:     王钰博
