@@ -2,7 +2,7 @@
 layout:     post 
 title: 笛卡尔
 subtitle:  
-date:       
+date: 2018-06-16
 author:     王钰博 
 header-img: img/190211_snow_3.jpg
 catalog: true

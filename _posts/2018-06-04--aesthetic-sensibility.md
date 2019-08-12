@@ -1,6 +1,6 @@
 --- 
 layout:     post 
-title:审美感觉 
+title: 审美感觉 
 subtitle:  
 date: 2018-06-04
 author:     王钰博 

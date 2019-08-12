@@ -1,8 +1,8 @@
 --- 
 layout:     post 
-title:一些问题     
+title: 一些问题
 subtitle: 练太极学到的
-date:       
+date: 2018-07-21
 author:     王钰博 
 header-img: img/190211_snow_3.jpg
 catalog: true

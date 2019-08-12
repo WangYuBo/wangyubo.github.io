@@ -43,7 +43,7 @@ anchorjs: true                          # if you want to customize anchor. check
 gems: [jekyll-paginate]
 
 
-
+exclude: [vendor]
 
 # Markdown settings
 # replace redcarpet to kramdown,
