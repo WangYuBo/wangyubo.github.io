@@ -2,7 +2,7 @@
 layout:     post 
 title: 杯子里的大石头
 subtitle:  
-date:2018-01-29 
+date: 2018-01-29 
 author:     王钰博 
 header-img: img/190211_snow_3.jpg
 catalog: true
