@@ -137,6 +137,7 @@ Cynefin Framework是由IBM的Dave Snowden在1999年提出，后来他和同事Cy
 Cynefin Framework 将决策场景分为5类．
 ![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/Cynefin_framework%2C_February_2011_(2).jpeg)
 
+最中间的是无序情景决策，无法定义．
 
 问题一属于简单情景决策，类似这种决策因果关系明确．你了解同样质量，东门打印店三百元打印五百张，西门三百元五百五十张，你选择去西门打印．所以这种情况你只要了解情况，正确分类，基本上决策不会太大失误．也因此有＂最佳实践＂．
 
