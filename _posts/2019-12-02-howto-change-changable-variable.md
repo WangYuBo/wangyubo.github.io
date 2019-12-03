@@ -136,7 +136,7 @@ The picture is a fact.
 Cynefin Framework是由IBM的Dave Snowden在1999年提出，后来他和同事Cynthia Kurtz合作发了论文．但当时并没有受到重视，直到2007年，Snowden and Mary E. Boone 在＜哈佛商业评论＞上发文介绍Cynefin Framework,才为大众所熟知．
 
 Cynefin Framework 将决策场景分为5类．
-![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/Cynefin_framework%2C_February_2011_(2).jpeg)
+![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/Cynefin_framework%2C_February_2011.jpeg)
 
 最中间的是无序情景决策，无法定义．
 
