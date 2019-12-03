@@ -1,16 +1,16 @@
---- 
-layout:     post 
+---
+layout:     post
 title: <人生模式>新书读者见面会观后感
 subtitle: 理工思维解人生
-date: 2019-12-02
-author:     钰博 
+date:       2019-12-02
+author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-认知 人生算法 变量
---- 
-
-
+    - 认知
+    - 人生算法
+    - 变量
+---
 
 
 > 改变可以改变的；
@@ -130,7 +130,7 @@ The picture is a fact.
 Cynefin Framework是由IBM的Dave Snowden在1999年提出，后来他和同事Cynthia Kurtz合作发了论文．但当时并没有受到重视，直到2007年，Snowden and Mary E. Boone 在＜哈佛商业评论＞上发文介绍Cynefin Framework,才为大众所熟知．
 
 Cynefin Framework 将决策场景分为5类．
-![]()
+![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/Cynefin_framework%2C_February_2011_(2).jpeg)
 
 
 问题一属于简单情景决策，类似这种决策因果关系明确．你了解同样质量，东门打印店三百元打印五百张，西门三百元五百五十张，你选择去西门打印．所以这种情况你只要了解情况，正确分类，基本上决策不会太大失误．也因此有＂最佳实践＂．
@@ -154,3 +154,6 @@ Cynefin Framework 将决策场景分为5类．
 
 
 1902 create&write 4h
+
+
+192303　　modify 2h
