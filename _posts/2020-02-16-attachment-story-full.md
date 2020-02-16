@@ -71,10 +71,10 @@ Bartholomew根据婴儿三种提出成人四种依恋风格(Bartholomew,1990,199
 
 ![Bartholomew-4-styles](https://upload-images.jianshu.io/upload_images/5037062-bbd3578641a07c84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-表格: 四依恋风格：
+四依恋风格：
 
 | 类别 | 组合 | 描述 |
-| -- | -- | -- |
+|--|--|--|
 | 安全型 | 低焦虑＋低回避 | 他们容易与人亲密，并安心地依赖和被依赖，不担心会被抛弃 |
 | 痴迷型 | 高焦虑＋低回避 | 渴望与人亲密，但总是发现、怀疑和恐惧另一半并不想达到同样的亲密 |
 | 疏离－回避型 | 低焦虑＋高回避 | 到与人亲密是不舒服的，难以信任和依赖他人； |
