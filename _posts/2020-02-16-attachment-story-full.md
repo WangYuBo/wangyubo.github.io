@@ -112,7 +112,7 @@ Bowlby强调依恋系统具有普遍性，跨文化的，但有质疑 (Rothbaum,
 
 国外有六种方法：AAI、ASM、RQ、AAS、AAQ和ECR,各有特点:
 
-|缩写|名称|特点|用时|
+| 缩写 | 名称 | 特点 | 用时 |
 |--|--|--|--|
 |AAI| (成人依恋访谈法，Adult Attachment Interview)|半访谈，稳定性良好，重测新度高，结构效度显著；|1h;|
 |AAQ|(成人依恋调查问卷，Adult Attachment Questionnaire)|:自陈问卷，研究领域最常用；|3m; |
