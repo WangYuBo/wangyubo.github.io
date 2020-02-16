@@ -72,6 +72,7 @@ Bartholomew根据婴儿三种提出成人四种依恋风格(Bartholomew,1990,199
 ![Bartholomew-4-styles](https://upload-images.jianshu.io/upload_images/5037062-bbd3578641a07c84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 表格: 四依恋风格：
+
 | 类别 | 组合 | 描述 |
 |--|--|--|
 | 安全型 | 低焦虑＋低回避 | 他们容易与人亲密，并安心地依赖和被依赖，不担心会被抛弃 |
@@ -110,6 +111,7 @@ Bowlby强调依恋系统具有普遍性，跨文化的，但有质疑 (Rothbaum,
 找好自己属于那一个类型?
 
 国外有六种方法：AAI、ASM、RQ、AAS、AAQ和ECR,各有特点:
+
 |缩写|名称|特点|用时|
 |--|--|--|--|
 |AAI| (成人依恋访谈法，Adult Attachment Interview)|半访谈，稳定性良好，重测新度高，结构效度显著；|1h;|
