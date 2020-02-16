@@ -199,8 +199,6 @@ Ainsworth, M. D. S., Blehar, M. C., &Waters, E. (1978). Wall. s.(1978). Patterns
 
 Hazan, C., & Shaver, P. (1987). Romantic love conceptualized as an attachment process. , 52(3), 511-524.
 
-
-
 Bartholomew, & K. (1990). Avoidance of intimacy: an attachment perspective. Journal 
 of Social and Personal Relationships, 7(2), 147-178.
 
