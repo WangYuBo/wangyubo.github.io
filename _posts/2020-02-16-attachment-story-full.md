@@ -49,14 +49,14 @@ tags:
 
 按图索骥,杨过先查了依恋风格提出者 John Bowlby, (1907—1990) ,英国心理学家，杰出的儿童精神病学家,荣获大英帝国司令勋章,皇家内科医师学会会员,。他将心理分析、认知心理学和进化生物学等学科统合在一起，纠正了弗洛伊德精神分析理论对童年经历的过分强调和对真正创伤的忽视。在儿童发展和依恋理论最为知名．2002年的一份心理学家调查问卷显示，他是20世纪引用排名49的心理学家．他是最早确切提出依恋理论(attachment theory)的人之一,后人依恋问题研究受其影响深远．1989年获美国心理学会颁发的杰出科学贡献奖。
 
-![bowlby 照片](https://upload-images.jianshu.io/upload_images/5037062-1f65171c4091275d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/200216-bowlby.jpg?raw=true)
 
 此时已到午夜,杨过困了睡,做梦他和小龙女和好了,就是牵手时候老牵不到,杨过一着急醒了,第二天早上了.杨过接着看.
 
 John Bowlby在剑桥大学时开始对自然科学/医学/心理学感兴趣.John Bowlby 发现,依恋是人类漫长的进化结果，已经集成到大脑中,成为人的本能．只要给儿童喂饱穿暖就可以健康长大么？不是的，没有亲密关系的儿童，依旧无法在社会中存活.狼孩便是确例.父母特别是母亲与幼儿形成的依恋关系,奠定一个人早期的依恋模式.Bowlby认为,母亲是孩子的安全基地,幼儿强烈依靠母亲,母亲对幼儿需求的不同回应模式,塑造了幼儿不同的依恋策略,形成依恋行为系统.
 
 杨过发现Bowlby的理论并没有当时主流心理学家接受,直到他的学生Mary Ainsworth,制作了著名的"陌生情景实验",确定了幼儿依恋的ABC三种类型,现在称为安全型/焦虑矛盾型/焦虑回避型.西元1990年，梅因(Main)和所罗门(Solomon)提出了一种新的依恋类型：混乱型不安全依恋，D型依恋；为什么会出现这三种类型呢?
-![Ainsworth陌生情景实验](https://upload-images.jianshu.io/upload_images/5037062-b1f4a7357f99a0fe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Ainsworth-陌生情景实验](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/200216-anniswoth-.png?raw=true)
 
 杨过找到了Hazan & Shaver在1987年人的论文,讲原因:
 当人类或非人灵长类婴儿被与其母亲分开时，婴儿会出现一种三阶段的情感反应。首先是反抗，这时婴儿哭喊，并拒绝别人的安慰。第二阶段是失望，这时婴儿悲哀消沉。第三阶段是漠然，这时如果母亲返回，婴儿会主动漠视和回避母亲
@@ -69,11 +69,11 @@ John Bowlby在剑桥大学时开始对自然科学/医学/心理学感兴趣.Joh
 
 Bartholomew根据婴儿三种提出成人四种依恋风格(Bartholomew,1990,1998)，根据疏离和恐惧亲密关系,把回避型分为两类,根据＂回避亲密＋焦虑被弃＂两个维度分成四个象限；
 
-![Bartholomew-4-styles](https://upload-images.jianshu.io/upload_images/5037062-bbd3578641a07c84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/200216-adults-4-styles.png?raw=true)
 
 四依恋风格：
 
-![四依恋风格](https://upload-images.jianshu.io/upload_images/5037062-fe9f024202810369.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/200216-4-styles-table.png.png?raw=true)
  　
 杨过心想,我和疏离回避型的特别符合啊,还能改变么?杨过查到Bartholomew在1998年就发论文提到,这个位置也是可以浮动的，随着自身经历的变化，我们自身的回避和忧虑水平都会发生变化。
 
@@ -121,7 +121,7 @@ Bowlby强调依恋系统具有普遍性，跨文化的，但有质疑 (Rothbaum,
 ## 四 如何改变呢?
 
 杨过发现另一位西域大神Peter Fonagy将依恋理论引入到心理治疗,效果显著.说起来,Fonagy是西域精神分析学派现任掌门人,是最受欢迎的儿童心理学家,也是心智化理论的创始人.但作为刚从匈牙利移民到英国的难民,16岁的Fonagy打算结束自己的生命。
-![fonagy](https://upload-images.jianshu.io/upload_images/5037062-3ffc12abaa42202c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://github.com/WangYuBo/wangyubo.github.io/blob/master/img/200216-fonagy.jpg?raw=true)
 
 "16岁的我是一个非常沮丧的少年，我有自杀意念，也计划了自杀的方案，"彼得·福纳吉回忆说，“如果现在让我评估当时的我，我会非常担心自己，因为我知道我打算做些什么。自杀的原因并不微妙、也不会令人惊讶：我是个匈牙利男孩，在英国上岸后就不会用英语说话了。”
 他们一家人在西伦敦的基尤花园安顿下来之后，年轻的福纳吉不想吃东西，也不想离开他的房间。他讨厌和人交谈，学习上也很吃力。“我遭受到了严重的抑制。我在一所现代化的中学上学，学校里的孩子们的成绩都不好，足球是他们的最主要的兴趣。”
