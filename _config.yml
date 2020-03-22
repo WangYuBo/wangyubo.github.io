@@ -60,6 +60,16 @@ kramdown:
 # Disqus（https://disqus.com/）
 # disqus_username: 
 
+# utteranc.es 评论插件
+<script src="https://utteranc.es/client.js"
+        repo="wangyubo/wangyubo.github.io"
+        issue-term="url"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
@@ -97,8 +107,8 @@ service-worker: true
 
 
 ---
-# layout:     keynote
-# iframe:     "http://muguangling.com/2019/02/10/stones-in-the-bottle/"
+layout:     keynote
+iframe:     "http://muguangling.com/2019/02/10/stones-in-the-bottle/"
 ---
 
 # Friends
