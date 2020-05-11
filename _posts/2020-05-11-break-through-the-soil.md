@@ -1,6 +1,6 @@
 ---
 layout:     post
-title: 回不去的故乡,难破的土壤
+title:   回不去的故乡,难破的土壤
 subtitle: <破土>读书笔记
 date:       2020-05-11
 author:     钰博
