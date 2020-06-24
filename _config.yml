@@ -19,7 +19,7 @@ sidebar-avatar: /img/mgl.jpg      # use absolute URL, seeing it's used in both `
 # SNS settings
 RSS: true
 # weibo_username:     wangyubo
-zhihu_username:     wangbyubo
+zhihu_username:     wangyubo
 github_username:    wangyubo
 douban_ussername:   Free_Runner
 facebook_username:  Bergen Wang
@@ -61,13 +61,13 @@ kramdown:
 # disqus_username: 
 
 # utteranc.es 评论插件
-<script src="https://utteranc.es/client.js"
-        repo="wangyubo/wangyubo.github.io"
-        issue-term="url"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-</script>
+#<script src="https://utteranc.es/client.js"
+#        repo="wangyubo/wangyubo.github.io"
+#        issue-term="url"
+#        theme="github-dark"
+#        crossorigin="anonymous"
+#        async>
+#</script>
 
 
 # Gitalk
