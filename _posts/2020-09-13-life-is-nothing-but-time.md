@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      时机
+title: 时机
 subtitle:　时机管理
 date:       2020-09-13
 author:     钰博
