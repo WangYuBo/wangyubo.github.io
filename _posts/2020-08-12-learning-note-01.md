@@ -2,7 +2,7 @@
 layout:     post
 title:      学琴笔记（一）
 subtitle:   
-date:       2030-08-12
+date:       2020-08-12
 author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
