@@ -1,7 +1,7 @@
 ---
-layout:     post
-title: 时机
-subtitle:　时机管理
+layout:   post
+title:  时机
+subtitle:　  时机管理
 date:       2020-09-13
 author:     钰博
 header-img: img/190211_snow_3.jpg
