@@ -1,3 +1,20 @@
+---
+layout:   post
+title:       如何经营异地恋
+subtitle:　  听听学术界的声音
+date:       2021-03-08
+author:     爱情理论砖家钰博
+header-img: img/190211_snow_3.jpg
+catalog: true
+tags:
+    - 异地恋
+    - LDR
+    - 困难
+    - 对策
+    
+---
+
+
 #  一、异地恋基本情况
 - 异地恋夸张版：北京海淀和朝阳都是异地恋
     - 网易调查报告：只周末见
@@ -88,10 +105,10 @@
  
  记录下将来要一起做的事
 
-# 5.  驯化对方
+# 5.  驯化自己与对方
 
 每月/每周/每天，到点做什么事儿
-[![61ZNP1.jpg](https://s3.ax1x.com/2021/03/08/61ZNP1.jpg)](https://imgtu.com/i/61ZNP1)
+[![61uJOK.jpg](https://s3.ax1x.com/2021/03/08/61uJOK.jpg)](https://imgtu.com/i/61uJOK)
 
 
 # 亲密 （intimacy）
