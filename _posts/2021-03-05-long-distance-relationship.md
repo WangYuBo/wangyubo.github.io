@@ -63,11 +63,11 @@ tags:
 
 # 爱情隐喻：
 
-- [] 从酸酸甜甜到爱的艺术；
-资本主义时代下的爱情；→ 爱的艺术
+
+自私、异化→ 爱的艺术
 
 
-# 从苹果到房子
+# 从苹果到 橡树与木棉
 [![6Y4UHg.jpg](https://s3.ax1x.com/2021/03/11/6Y4UHg.jpg)](https://imgtu.com/i/6Y4UHg)
 
 
@@ -101,10 +101,10 @@ tags:
  相互去对方世界走一走；
  
 2. 披露维度：
-1.  兴趣、爱好
-2.  态度
-3.  人际关系
-4.  隐私
+    1.  兴趣、爱好
+    2.  态度
+    3.  人际关系
+    4.  隐私
 
 
 # 亲密工具箱
@@ -121,17 +121,15 @@ tags:
 
 
 # 承诺工具箱
-## 0. 约法三章
-##  1. 共同设定里程碑
-
-
-## 2. 共同维护情侣待办清单
+ 0. 约法三章
+1. 共同设定里程碑
+2. 共同维护情侣待办清单
  
  记录下100件要一起做的事
 
-## 3.  驯化自己与对方
+3.  驯化自己与对方
 
-每月/每周/每天，到点做什么事儿
+
 [![61uJOK.jpg](https://s3.ax1x.com/2021/03/08/61uJOK.jpg)](https://imgtu.com/i/61uJOK)
 
 
@@ -149,9 +147,9 @@ tags:
 
 # 还是容易厌烦怎么办？
 
-天真与好奇；
+1. 天真与好奇；
  
- 心灵世界、物理世界、生物世界
+ 2. 心灵世界、物理世界、生物世界
  
 [![61eHmD.jpg](https://s3.ax1x.com/2021/03/08/61eHmD.jpg)](https://imgtu.com/i/61eHmD)
  
@@ -164,11 +162,11 @@ tags:
 3. 不同依恋类型恋人如何变成安全型在其他文章里讨论；
 
 #  关注对方与自己
-## 人心惟危，道心惟微；惟精惟一，允执厥中。  《尚书·虞书·大禹谟》
+#### 人心惟危，道心惟微；惟精惟一，允执厥中。  ---《尚书·虞书·大禹谟》
 
 # 成就自己，成就双方
-### 如果不努力发展自己的全部人格，并以此来创造生活，那么每种爱的试图都会失败；
-### 如果没有爱他人的能力，如果不能真正谦恭地、勇敢地、真诚地和有纪律地爱他人，那么人们在自己的爱情生活中也永远得不到满足。    ---弗洛姆 《爱的艺术》
+#### 如果不努力发展自己的全部人格，并以此来创造生活，那么每种爱的试图都会失败；
+#### 如果没有爱他人的能力，如果不能真正谦恭地、勇敢地、真诚地和有纪律地爱他人，那么人们在自己的爱情生活中也永远得不到满足。    ---弗洛姆 《爱的艺术》
 
 
 # 参考文献与资料：
@@ -176,25 +174,26 @@ tags:
 
 
 1. Altman, I., & Taylor, D. A. (1973)._Social penetration: The development of interpersonal relationships._Holt, Rinehart & Winston.
+2. 8. Catron, M. L. (2017)._How to Fall in Love with Anyone: A Memoir in Essays_. Simon and Schuster.
+3. Sternberg, Robert J. Construct validation of a triangular love scale. European Journal of Social Psychology. 1997,**27**(3): 313–335.
+4. Sternberg, Robert J. Love as a Story. Journal of Social and Personal Relationships.
 
-2. Arthur Aron，人际亲密感的产生：实验程序及部分初步发现 ；
+5. Bartholomew, K., & Shaver, P. R. (1998). Methods of assessing adult attachment: Do they converge? In J. A. Simpson & W. S. Rholes (Eds.), Attachment theory and close relationships (p. 25–45). Guilford Press.
+6.  Guldner, G. T. , & Swensen, C. H. . (1995). Time spent together and relationship quality: long-distance relationships as a test case._Journal of Social and Personal Relationships__,__12_(2), 313-320.
+7.  Crystal, J. L. , & Hancock, J. T. . (0). Absence makes the communication grow fonder: geographic separation, interpersonal media, and intimacy in dating relationships._Journal of Communication_(3), 556-577.
 
-3. FiveThirtyEight 异地恋研究：[http://www.199it.com/archives/352546.html](http://www.199it.com/archives/352546.html)
+8. Arthur Aron，人际亲密感的产生：实验程序及部分初步发现 ；
 
-4. 搜狐《2018中国职场青年感情状态调查》[https://www.sohu.com/a/247954464_134128](https://www.sohu.com/a/247954464_134128)
+9. FiveThirtyEight 异地恋研究：[http://www.199it.com/archives/352546.html](http://www.199it.com/archives/352546.html)
 
-5. 网易异地恋问卷调查：[http://data.163.com/20/1105/13/FQM31I65000181IU.html](http://data.163.com/20/1105/13/FQM31I65000181IU.html)
+10. 搜狐《2018中国职场青年感情状态调查》[https://www.sohu.com/a/247954464_134128](https://www.sohu.com/a/247954464_134128)
 
-6. 阳志平，《致弯道超车者》
+11. 网易异地恋问卷调查：[http://data.163.com/20/1105/13/FQM31I65000181IU.html](http://data.163.com/20/1105/13/FQM31I65000181IU.html)
 
-7. 哥特曼, 西尔瓦穆君, & 伏维. (2014)._爱的博弈 : 建立信任、避免背叛与不忠 : What makes love last? : how to build trust and avoid betrayal_. 浙江人民出版社.
-8. Catron, M. L. (2017)._How to Fall in Love with Anyone: A Memoir in Essays_. Simon and Schuster.
-9. Sternberg, Robert J. Construct validation of a triangular love scale. European Journal of Social Psychology. 1997,**27**(3): 313–335.
-10. Sternberg, Robert J. Love as a Story. Journal of Social and Personal Relationships.
+12. 阳志平，《致弯道超车者》
 
-11. Bartholomew, K., & Shaver, P. R. (1998). Methods of assessing adult attachment: Do they converge? In J. A. Simpson & W. S. Rholes (Eds.), Attachment theory and close relationships (p. 25–45). Guilford Press.
-12. Guldner, G. T. , & Swensen, C. H. . (1995). Time spent together and relationship quality: long-distance relationships as a test case._Journal of Social and Personal Relationships__,__12_(2), 313-320.
-13. Crystal, J. L. , & Hancock, J. T. . (0). Absence makes the communication grow fonder: geographic separation, interpersonal media, and intimacy in dating relationships._Journal of Communication_(3), 556-577.
+13. 哥特曼, 西尔瓦穆君, & 伏维. (2014)._爱的博弈 : 建立信任、避免背叛与不忠 : What makes love last? : how to build trust and avoid betrayal_. 浙江人民出版社.
+
 
 
 
