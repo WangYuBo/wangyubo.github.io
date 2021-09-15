@@ -1,19 +1,16 @@
 ---
-layout:   post
-title: 如何经营异地恋
-subtitle:　  
-date:       2021-03-05
-author:     爱情理论砖家钰博
+layout:     post
+title:   如何经营异地恋
+subtitle: 
+date:       2021-03-05  
+author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-    - 异地恋
-    - LDR
-    - 困难
-    - 对策
-    
----
+   - 异地恋
+   - 思考
 
+---
 
 #  一、李雷和韩梅梅异地恋（LDRs）了
 
