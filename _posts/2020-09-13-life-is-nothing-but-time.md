@@ -1,16 +1,17 @@
 ---
-layout:   post
-title:       时机
-subtitle:　  时机管理
-date:       2020-09-13
+layout:     post
+title:   时机
+subtitle: 
+date:       2020-09-13  
 author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-    - 时机
-    - 笔记
-    
+   - 时机管理
+   - 思考
+
 ---
+
 
 
 > Life is nothing but timing.
