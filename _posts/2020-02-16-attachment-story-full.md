@@ -1,6 +1,6 @@
 --- 
 layout:     post 
-title: 杨过:我这么帅气这么有才,为什么没有女朋友?
+title: 杨过的故事
 subtitle:  依恋风格:影响你一生幸福的情感模式
 date: 2020-01-04
 author:     钰博 
