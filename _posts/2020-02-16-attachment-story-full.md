@@ -4,7 +4,7 @@ title: 杨过的故事
 subtitle:  依恋风格:影响你一生幸福的情感模式
 date: 2020-01-04
 author:     钰博 
-header-img: img/190211_snow_3。jpg
+header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
    - 亲密关系
@@ -206,32 +206,33 @@ Bowlby 如同种子般的开创性见解，以及Ainsworth ，Main和Fonagy等�
 
 
 ## 参考文献
-Bowlby， J。 ， & Bowlby， R。 。 (1979)。 The Making and Breaking of Affectional Bonds。 Tavistock Publication。
+Bowlby, J. , & Bowlby, R. . (1979). The Making and Breaking of Affectional Bonds. Tavistock Publication.
 
-Bretherton， Inge。 (1992)。 The Origins of Attachment Theory: John Bowlby and Mary Ainsworth。 Developmental Psychology。 28。 759-775。 10。1037/0012-1649。28。5。759。 
+Bretherton, Inge. (1992). The Origins of Attachment Theory: John Bowlby and Mary Ainsworth. Developmental Psychology. 28. 759-775. 10.1037/0012-1649.28.5.759. 
 
-Ainsworth， M。 D。 S。， Blehar， M。 C。， &Waters， E。 (1978)。 Wall。 s。(1978)。 Patterns of attachment: A psychologicalstudy of the strange situation。
+Ainsworth, M. D. S., Blehar, M. C., &Waters, E. (1978). Wall. s.(1978). Patterns of attachment: A psychologicalstudy of the strange situation.
 
-Hazan， C。， & Shaver， P。 (1987)。 Romantic love conceptualized as an attachment process。 ， 52(3)， 511-524。
+Hazan, C., & Shaver, P. (1987). Romantic love conceptualized as an attachment process. , 52(3), 511-524.
 
-Bartholomew， & K。 (1990)。 Avoidance of intimacy: an attachment perspective。 Journal 
-of Social and Personal Relationships， 7(2)， 147-178。
+Bartholomew, & K. (1990). Avoidance of intimacy: an attachment perspective. Journal 
 
-Bartholomew， K。 ， & Horowitz， L。 M。 。 (1991)。 Attachment styles among young adults。 Journal of Personality & Social Psychology， 61(2)， 226-44。
+of Social and Personal Relationships, 7(2), 147-178.
 
-Bartholomew， K。， & Shaver， P。 R。 (1998)。 Methods of assessing adult attachment: Do they converge? In J。 A。 Simpson & W。 S。 Rholes (Eds。)， Attachment theory and close relationships (p。 25–45)。 Guilford Press。
+Bartholomew, K. , & Horowitz, L. M. . (1991). Attachment styles among young adults. Journal of Personality & Social Psychology, 61(2), 226-44.
 
-Fonagy， P。 ， Steele， M。 ， Steele， H。 ， Moran， G。 ， & Higgitt， A。 。 (1991)。 The capacity for understanding mental states - the reflective self in parent and child and its significance for security of attachment。 Infant Mental Health Journal， 12(3)， 201-218。
+Bartholomew, K., & Shaver, P. R. (1998). Methods of assessing adult attachment: Do they converge? In J. A. Simpson & W. S. Rholes (Eds.), Attachment theory and close relationships (p. 25–45). Guilford Press.
 
-Fonagy， P。 ， Steele， M。 ， Steele， H。 ， Higgitt， A。 ， & Target， M。 。 (1994)。 The emanuel miller memorial lecture 1992 the theory and practice of resilience。 Journal of Child Psychology and Psychiatry， 35(2)， 231-257。
+Fonagy, P. , Steele, M. , Steele, H. , Moran, G. , & Higgitt, A. . (1991). The capacity for understanding mental states - the reflective self in parent and child and its significance for security of attachment. Infant Mental Health Journal, 12(3), 201-218.
 
-Wallin， D。 J。 。 (2014)。 心理治疗中的依恋--从养育到治愈，从理论到实践(万千心理)。 中国轻工业出版社。
+Fonagy, P. , Steele, M. , Steele, H. , Higgitt, A. , & Target, M. . (1994). The emanuel miller memorial lecture 1992 the theory and practice of resilience. Journal of Child Psychology and Psychiatry, 35(2), 231-257.
 
-向叶敏， 陈磊， & 郑莉君。 (2018)。 中美大学生关系型自我构念与亲密关系质量比较研究。 宁波大学学报(教育科学版)， v。40；No。193(03)， 18-22。
+Wallin, D. J. . (2014). 心理治疗中的依恋--从养育到治愈,从理论到实践(万千心理). 中国轻工业出版社.
 
-朱天慧。 (2012)。 成人依恋测量工具述评。 大众科技， 14(2)， 200-202。
+向叶敏, 陈磊, & 郑莉君. (2018). 中美大学生关系型自我构念与亲密关系质量比较研究. 宁波大学学报(教育科学版), v.40；No.193(03), 18-22.
 
-李同归， & 加藤和生。 (2006)。 成人依恋的测量：亲密关系经历量表（ecr）中文版。 心理学报(3)， 399-406。
+朱天慧. (2012). 成人依恋测量工具述评. 大众科技, 14(2), 200-202.
 
-朱函昱， 刘文， 陈亮， & 俞睿玮。 (0)。 成人依恋与创造性的关系:积极情绪的中介作用。 第十七届全国心理学学术会议。
+李同归, & 加藤和生. (2006). 成人依恋的测量：亲密关系经历量表（ecr）中文版. 心理学报(3), 399-406.
+
+朱函昱, 刘文, 陈亮, & 俞睿玮. (0). 成人依恋与创造性的关系:积极情绪的中介作用. 第十七届全国心理学学术会议.
 
