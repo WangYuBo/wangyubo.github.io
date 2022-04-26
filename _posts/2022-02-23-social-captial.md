@@ -7,9 +7,9 @@ author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-   - 花田间
-   - 思考
-   - 乡创
+   - 开智
+   - 实践
+   - 社会资本
 
 ---
 
