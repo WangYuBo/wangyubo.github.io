@@ -2,7 +2,7 @@
 layout:     post
 title:   走出乡村的人们
 subtitle: 
-date:       2016-08-018
+date:       2016-08-18
 author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
