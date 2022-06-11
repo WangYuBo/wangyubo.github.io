@@ -1,14 +1,14 @@
 ---
 layout:     post
-title:   爬山野趣
+title:   掘金《天才的编辑》
 subtitle: 
-date:       2022-05-25
+date:       2022-06-10
 author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-   - 爬山野趣
-   - 随笔
+   - 天才的编辑
+   - 读书笔记
    
 
 ---
