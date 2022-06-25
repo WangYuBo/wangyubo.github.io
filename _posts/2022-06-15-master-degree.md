@@ -122,4 +122,5 @@ tags:
 6. 向勇. 文化产业导论[M/OL]. 北京大学出版社, 2015. https://book.douban.com/subject/26410909/.
 6. [论文工具箱:](https://www.douban.com/doulist/142382699/) 好工具让你事半功倍，好工具是你好论文的底气;
 7. [论文发表工具箱：](https://github.com/OpenMindClub/awesome-scholarly-productivity) 我参与的一个Github开源项目，好工具一网打尽；
+8. [博士答辩最常见二十四个问题]()
 
