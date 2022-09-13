@@ -54,7 +54,7 @@ tags:
 [![vae1yj.jpg](https://s1.ax1x.com/2022/08/14/vae1yj.jpg)](https://imgtu.com/i/vae1yj)
 身份证照片不带水分↑
 
-[![vae0l4.jpg](https://s1.ax1x.com/2022/08/14/vae0l4.jpg)](https://imgtu.com/i/vae0l4)
+[![vjy6l6.jpg](https://s1.ax1x.com/2022/09/13/vjy6l6.jpg)](https://imgse.com/i/vjy6l6)
 手机自带美颜效果真棒～↑
 
 [![vae6Tx.jpg](https://s1.ax1x.com/2022/08/14/vae6Tx.jpg)](https://imgtu.com/i/vae6Tx)
