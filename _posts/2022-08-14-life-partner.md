@@ -50,12 +50,11 @@ tags:
 
 
 ### 最后
-爆照以显示诚意：
-[![vae1yj.jpg](https://s1.ax1x.com/2022/08/14/vae1yj.jpg)](https://imgtu.com/i/vae1yj)
-身份证照片不带水分↑
+[![xpueWd.jpg](https://s1.ax1x.com/2022/09/17/xpueWd.jpg)](https://imgse.com/i/xpueWd)
+
 
 [![vjy6l6.jpg](https://s1.ax1x.com/2022/09/13/vjy6l6.jpg)](https://imgse.com/i/vjy6l6)
-手机自带美颜效果真棒～↑
+
 
 [![vae6Tx.jpg](https://s1.ax1x.com/2022/08/14/vae6Tx.jpg)](https://imgtu.com/i/vae6Tx)
 爬上箭扣拍的。小命差点挂在箭扣，这是另外一个故事，回头给你讲。↑
