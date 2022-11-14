@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:   星火读书会
-subtitle: 招募贴
+subtitle: 猛士招募贴，爱读书的小伙伴快到锅里来
 date:       2022-11-12 
 author:     钰博
 header-img: img/190211_snow_3.jpg
