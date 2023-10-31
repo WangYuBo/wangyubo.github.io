@@ -1,13 +1,16 @@
 ---
 layout:     post
-title:   爱情课程小结
+title:   阻碍回避型依恋找到对象的三大障碍
 subtitle: 一些认知上的障碍
 date:       2023-10-31
 author:     钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-   - 征友
+   - 总结
+   - 爱情
+   - 回避型依恋
+   - 障碍
    
    
 
