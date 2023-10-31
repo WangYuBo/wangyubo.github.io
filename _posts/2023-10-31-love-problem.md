@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:   阻碍回避型依恋找到对象的三大障碍
-subtitle: 一些认知上的障碍
+title:   封锁回避型依恋者寻求恋人的三重壁垒
+subtitle: 破除一些认知上的障碍
 date:       2023-10-31
 author:     钰博
 header-img: img/190211_snow_3.jpg
