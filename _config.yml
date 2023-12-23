@@ -1,6 +1,6 @@
 # Site settings
-title: 藏山阁
-SEOTitle: 慕广陵的藏山阁
+title: 钰博的博客
+SEOTitle:  钰博的博客
 header-img: img/190211_snow_2.jpeg
 email: freerunner#foxmail.com
 description: "Every failure is leading towards success."
@@ -18,13 +18,10 @@ sidebar-avatar: /img/mgl.jpg      # use absolute URL, seeing it's used in both `
         
 # SNS settings
 RSS: true
-# weibo_username:     wangyubo
-zhihu_username:     wangbyubo 
+# weibo_username:     wangyubo 
 github_username:    wangyubo
 douban_ussername:   Free_Runner
 facebook_username:  Bergen Wang
-#jianshu_username:   e71990ada2fd
-twitter_username:   Ibez8DM948fSEHw
 
 
 
@@ -72,7 +69,7 @@ kramdown:
 
 # Gitalk
 gitalk:
-  enable: true    #是否开启Gitalk评论
+  enable: false    #是否开启Gitalk评论
   clientID: 895f6f62380e2dc262d8                            #生成的clientID
   clientSecret: a41665f5af72e9a2f28724a88bfceb2597e0949f    #生成的clientSecret
   repo: wangyubo.github.io    #仓库名称
