@@ -15,10 +15,10 @@ tags:
 
 ---
 
-# 直接可用的提示词list
+### 一、直接可用的提示词list
 
 
-## 排第一的当然是大名鼎鼎的“全球第一大同性交友平台”——Github
+#### 1.1 排第一的当然是大名鼎鼎的“全球第一大同性交友平台”——Github
 1. [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) : github最火提示词repo，提示词数量大约一百个；英文版；
 2. [ChatGPT 中文调教指南]（https://github.com/PlexPt/awesome-chatgpt-prompts-zh）:1的中文版；
 3. [FlowGPT](https://flowgpt.com/): FlowGPT is the largest open source prompt community.
@@ -27,7 +27,7 @@ tags:
 6. [Best Data Science ChatGPT Prompts](https://github.com/travistangvh/ChatGPT-Data-Science-Prompts)，据说是数据科学领域最牛提示词集合；
 7. 还有很多其他细分领域的，作者比较懒，相信聪明的你一定找得到。
 
-## 其他聚合的
+#### 1.2 其他聚合的
 6. [prompthero](http://prompthero.com/）：自称为最好的提示词网站。图像类提示词，覆盖MJ、SD等几个主流图像大模型；由网友投票选出最受欢迎提示词。在访问流量方面，目前为图像提示词聚合领域TOP1.
 6. Reddit's ChatGPT Prompts Genius：质量很好，不知为啥我IP被屏了，需要你科学上网搜下
 7. [ShowGPT.co](https://showgpt.co/templates)
@@ -41,7 +41,7 @@ tags:
 17. [The Prompt Index](https://www.thepromptindex.com/): A vast collection of carefully curated prompts, stimulating imagination and fueling creative endeavours.
 18. [PromptDen](https://promptden.com): A growing list of thousands of prompts for both text and image generation. Free to explore, add your own, save your favorites and even create a profile page for prompt engineering.
 
-## 各大GPT公司&机构：
+#### 1.3 各大GPT公司&机构：
 
 1. [openai官方提示词示例](https://platform.openai.com/examples) 分六大类，可搜索；
 
@@ -56,7 +56,7 @@ tags:
 
 
 
-## 自己写着累？试试提示词生成器
+#### 1.4 自己写着累？试试提示词生成器
 
 1. [CF Spark图像提示词生成器](https://www.creativefabrica.com/spark/tools/prompt-builder/) 不懂艺术风格？不懂摄影参数？不懂2D3D？都没关系，9大类数百个细分参数，视觉展示好，供你组合成提示词。
 
@@ -65,29 +65,27 @@ tags:
 3. [图像生成](https://lexica.art/)
 
 
-## 写完了感觉还差点啥？AI提示词帮你优化
+#### 1.5 写完了感觉还差点啥？AI提示词帮你优化
 1. [promptperfect](https://promptperfect.jina.ai/home) 如果你会一点编程的话，你的能力杠杠至少翻倍，就是需要付出一点银子； 
 2. GPTs上也有很多，请自行搜索；
  
 
 
-## AI工具导航
-1. https://ai-bot.cn/#term-14  流量中国排名两千左右，同类的有很多，不一一列了。
 
+### 二、进阶：
 
-# 进阶：
-
-## GPTs：
+#### 2.1 GPTs：
 1. [BlackFriday-GPTs-Prompts](https://github.com/friuns2/BlackFriday-GPTs-Prompts):针对GPTS设计的提示词，分为Programming、Marketing、Academic、Job Hunting、Game、Creative、Prompt Engineering、Business、Productivity & life style、Jailbreaks等几个大类。
 2. [GPTs Works](https://gpts.works/):第三方GPTs Store;
 3. [GPTs Index](https://gpts.hallid.ai/):日语为主，挺丰富；
 4. [GPTs Hunter](https://www.gptshunter.com/)：11万余个GPTs;
 
-## 提示词还能赚钱（自行鉴别，风险自担）
+#### 2.2 提示词还能赚钱（自行鉴别，风险自担）
 
 1. https://promptbase.com/ 国外的，据说是The largest prompts marketplace on the web.
 2. https://prompthub.tianlianzh.com/  国内的
 
-## *
+### ps.
 1. 信息收集截止到24.11.24;
-2. prompt engineer是另外超大一块，我懒得搜集了，你懂得；
+2. prompt engineer是另外超大一块，我懒得搜集了；
+3. 或许你并不需要提示词，AI工具导航可能更有用： [ai-bot](https://ai-bot.cn/) 流量中国排名两千左右，同类的有很多，不一一列了。
