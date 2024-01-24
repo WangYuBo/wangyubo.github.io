@@ -82,8 +82,8 @@ tags:
 
 #### 2.2 提示词还能赚钱（自行鉴别，风险自担）
 
-1. https://promptbase.com/ 国外的，据说是The largest prompts marketplace on the web.
-2. https://prompthub.tianlianzh.com/  国内版的
+1. [promptbase](https://promptbase.com/) 国外的提示词交易平台，据说是The largest prompts marketplace on the web.
+2. [PromptHub](https://prompthub.tianlianzh.com/)  国内版的，不知为啥也起了个容易误会的名
 
 ### ps.
 1. 信息收集截止到24.11.24;
