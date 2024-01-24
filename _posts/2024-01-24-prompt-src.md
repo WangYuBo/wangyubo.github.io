@@ -20,7 +20,7 @@ tags:
 
 #### 1.1 排第一的当然是大名鼎鼎的“全球第一大同性交友平台”——Github
 1. [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) : github最火提示词repo，提示词数量大约一百个；英文版；
-2. [ChatGPT 中文调教指南]（https://github.com/PlexPt/awesome-chatgpt-prompts-zh）:1的中文版；
+2. [ChatGPT 中文调教指南](https://github.com/PlexPt/awesome-chatgpt-prompts-zh):1的中文版；
 3. [FlowGPT](https://flowgpt.com/): FlowGPT is the largest open source prompt community.
 4. [awesomegptprompts.com](https://www.awesomegptprompts.com/): Explore hundreds of the best ChatGPT Prompts.
 5. [fka/awesome-chatgpt-prompts](https://huggingface.co/datasets/fka/awesome-chatgpt-prompts): Dataset of awesome chatgpt prompts.
@@ -28,7 +28,7 @@ tags:
 7. 还有很多其他细分领域的，作者比较懒，相信聪明的你一定找得到。
 
 #### 1.2 其他聚合的
-6. [prompthero](http://prompthero.com/）：自称为最好的提示词网站。图像类提示词，覆盖MJ、SD等几个主流图像大模型；由网友投票选出最受欢迎提示词。在访问流量方面，目前为图像提示词聚合领域TOP1.
+6. [prompthero](http://prompthero.com/)：自称为最好的提示词网站。图像类提示词，覆盖MJ、SD等几个主流图像大模型；由网友投票选出最受欢迎提示词。在访问流量方面，目前为图像提示词聚合领域TOP1.
 6. Reddit's ChatGPT Prompts Genius：质量很好，不知为啥我IP被屏了，需要你科学上网搜下
 7. [ShowGPT.co](https://showgpt.co/templates)
 9. [Ignacio Velásquez Prompt Templates](https://ignacio-velasquez.notion.site/ignacio-velasquez/500-ChatGPT-Prompt-Templates-d9541e901b2b4e8f800e819bdc0256da): 500+ ChatGPT Prompt Templates，有模板，更省劲儿. 
