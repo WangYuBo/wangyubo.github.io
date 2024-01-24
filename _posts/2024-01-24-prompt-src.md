@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:   给小白的提示词资源
+title:   提示词资源清单
 subtitle: 从小白到进阶
 date:       2024-01-24
 author:     钰博
