@@ -33,7 +33,7 @@ tags:
 7. [ShowGPT.co](https://showgpt.co/templates)
 9. [Ignacio Velásquez Prompt Templates](https://ignacio-velasquez.notion.site/ignacio-velasquez/500-ChatGPT-Prompt-Templates-d9541e901b2b4e8f800e819bdc0256da): 500+ ChatGPT Prompt Templates，有模板，更省劲儿. 
 11. [Hero GPT](https://hero.page/ai-prompts): AI Prompt Library.
-12. [PromptHub](https://prompthub.space/)
+12. [PromptHub](https://prompthub.space/):网站名很容易让人看错导致误会
 13. [Snack Prompt](https://snackprompt.com): GPT prompts collection, has a a Chrome extension.
 14. [ShareGPT](https://sharegpt.com): Share your prompts and your entire conversations.
 15. [Prompt Search](https://www.ptsearch.info/tags/list/): a search engine for AI Prompts.
@@ -51,7 +51,7 @@ tags:
 
 4. [Claude 提示词指南](https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources)
 
-5. 还有其他大模型官网基本都有提示词指南，不一一列了，还是一如既往相信你；
+5. 还有其他大模型官网基本都有提示词指南，不一一列了，相信你能找到的；
 
 
 
@@ -67,14 +67,14 @@ tags:
 
 #### 1.5 写完了感觉还差点啥？AI提示词帮你优化
 1. [promptperfect](https://promptperfect.jina.ai/home) 如果你会一点编程的话，你的能力杠杠至少翻倍，就是需要付出一点银子； 
-2. GPTs上也有很多，请自行搜索；
+2. GPTs上也有很多，我懒得搜集了，相信你一定能找到的！
  
 
 
 
 ### 二、进阶：
 
-#### 2.1 GPTs：
+#### 2.1 GPTs（相当于应用商店里的app）：
 1. [BlackFriday-GPTs-Prompts](https://github.com/friuns2/BlackFriday-GPTs-Prompts):针对GPTS设计的提示词，分为Programming、Marketing、Academic、Job Hunting、Game、Creative、Prompt Engineering、Business、Productivity & life style、Jailbreaks等几个大类。
 2. [GPTs Works](https://gpts.works/):第三方GPTs Store;
 3. [GPTs Index](https://gpts.hallid.ai/):日语为主，挺丰富；
@@ -83,9 +83,9 @@ tags:
 #### 2.2 提示词还能赚钱（自行鉴别，风险自担）
 
 1. https://promptbase.com/ 国外的，据说是The largest prompts marketplace on the web.
-2. https://prompthub.tianlianzh.com/  国内的
+2. https://prompthub.tianlianzh.com/  国内版的
 
 ### ps.
 1. 信息收集截止到24.11.24;
-2. prompt engineer是另外超大一块，我懒得搜集了；
+2. prompt engineer是另外超大一块，我懒得搜集了，相信你一定找得到！
 3. 或许你并不需要提示词，AI工具导航可能更有用： [ai-bot](https://ai-bot.cn/) 流量中国排名两千左右，同类的有很多，不一一列了。
