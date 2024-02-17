@@ -64,6 +64,8 @@ tags:
 
 3. [图像生成](https://lexica.art/)
 
+4. [civitai](https://civitai.com/)
+
 
 #### 1.5 写完了感觉还差点啥？AI提示词帮你优化
 1. [promptperfect](https://promptperfect.jina.ai/home) 如果你会一点编程的话，你的能力杠杠至少翻倍，就是需要付出一点银子； 
