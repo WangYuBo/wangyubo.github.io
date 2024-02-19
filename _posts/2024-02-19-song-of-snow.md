@@ -1,7 +1,7 @@
 ---
 layout:   post
 title: 雪日
-subtitle:　 预报明日大雪，想起了年前帝都大雪游园
+subtitle:　 预报明日大雪，想起了年前帝都大雪游园，戏仿张枣《镜中》
 date:       2024-02-19
 author:     钰博
 header-img: img/190211_snow_3.jpg
