@@ -1,15 +1,15 @@
 ---
-layout:   post
+layout: post
 title: 雪日
-subtitle:　 预报明日大雪，想起了年前帝都大雪游园，戏仿张枣《镜中》
-date:       2024-2-19
-author:     钰博
+subtitle: 预报明日大雪，想起了年前帝都大雪游园，戏仿张枣《镜中》
+date: 2024-2-19
+author: 钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-    - 诗
-    - 雪
-    
+  - 诗
+  - 雪
+
 ---
 
 只要忆起往日里的遗憾，
