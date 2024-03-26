@@ -1,15 +1,16 @@
---- 
-layout:     post 
+---
+layout: post
 title: 杨过的故事
-subtitle:  依恋风格:影响你一生幸福的情感模式
+subtitle: 依恋风格:影响你一生幸福的情感模式
 date: 2020-01-04
-author:     钰博 
+author: 钰博
 header-img: img/190211_snow_3.jpg
 catalog: true
 tags:
-   - 亲密关系
-   - 幸福
---- 
+  - 亲密关系
+  - 幸福
+
+---
 
 ## 一、缘起
 故事要从大宋神宗四年说起，那时国泰民安，百姓安居乐业。 偶尔有北方蛮族骚扰边境，大宋上层认为并无大患。
