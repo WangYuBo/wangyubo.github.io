@@ -1,2 +1,0 @@
-# 2018-06-04--aesthetic-sensibility
-
