@@ -1,12 +1,8 @@
 # Table of contents
 
 * [Page](README.md)
-* [走出乡村的人们](zou-chu-xiang-cun-de-ren-men.md)
-* [18年读书总结](18-nian-du-shu-zong-jie.md)
-* [一点回顾](2019-03-10-\_review.md)
-* [日常一瞥](ri-chang-yi-pie.md)
+
 * [<人生模式>直播观后感](2019-12-02-howto-change-changable-variable.md)
-* [2019-review](2019-review.md)
 * [2020-02-16-attachment-story-full](2020-02-16-attachment-story-full.md)
 * [回不去的故乡](2020-05-11-break-through-the-soil.md)
 * [自由](2020-06-27-what-is-freedom.md)
@@ -22,7 +18,6 @@
 * [社会资本实践第三次小聚小记](2022-03-27-3nd-social-captial-note.md)
 * [社会资本实践第四次小聚小记](2022-04-03-3nd-social-captial-note.md)
 * [Zotero必备addon清单](zotero-bi-bei-addon-qing-dan.md)
-* [爬山野趣](pa-shan-ye-qu.md)
 * [《暗时间》里的秘密武器](2022-05-25-dark-time.md)
 * [断舍离小技巧，幸福感大提升](2022-05-25-think-of-duansheli.md)
 * [掘金《天才的编辑》](2022-06-10-genius-of-editor.md)
