@@ -1,11 +1,11 @@
 ---
-layout:  post
-title:  北京春风不温柔
-subtitle:  王五的故事
-date:  2024-05-04
-author: 钰博
-header-img: img/190211_snow_3.jpg
-catalog: true
+layout:   post
+title:   北京春风不温柔
+subtitle:   王五的故事
+date:   2024-05-04
+author:  钰博
+header-img:  img/190211_snow_3.jpg
+catalog:  true
 tags:
   - 小说
   - 王五
