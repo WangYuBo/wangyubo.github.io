@@ -1,14 +1,15 @@
 ---
-layout:   post
-title:   北京春风不温柔
-subtitle:   王五的故事
-date:   2024-05-04
-author:  钰博
-header-img:  img/190211_snow_3.jpg
-catalog:  true
+layout:     post
+title:   阿德勒的启示
+subtitle: 《自卑与超越》读书笔记
+date:       2024-2-11
+author:     钰博
+header-img: img/190211_snow_3.jpg
+catalog: true
 tags:
-  - 小说
-  - 王五
+   - 阿德勒
+   - 自卑
+   - 个体心理学 
 
 ---
 
