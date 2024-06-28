@@ -2,7 +2,7 @@
 layout:     post 
 title:     Python之禅
 subtitle:  
-date:       
+date:       2018-07-11
 author:     王钰博 
 header-img: img/190211_snow_3.jpg
 catalog: true
