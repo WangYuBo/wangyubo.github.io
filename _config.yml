@@ -97,14 +97,7 @@ iframe:     "http://muguangling.com/2021/03/11/2021-03-05-long-distance-relation
 
 # Friends
 friends: [
-    {
-        title: "阳志平",
-        href: "www.yangzhiping.com"
-    }
-    {
-        title: "胡裕宁",
-        href: "www.huyuning.com"
-    }
+
 ]
 
 theme: jekyll-theme-minimal
