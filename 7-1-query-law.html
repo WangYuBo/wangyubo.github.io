@@ -1,819 +1,876 @@
-<!DOCTYPE html>
+<title>法规查询网页演示版</title>
+<type>text/html</type>
+undefined
+<content><!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>细则关键词查询结果</title>
+    <title>法规查询系统</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --gray-light: #f5f5f5;
+            --gray: #e0e0e0;
+            --gray-dark: #757575;
+            --text-color: #333;
+            --white: #fff;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
         }
-
+        
         body {
-            background-color: #f5f6fa;
-            color: #333;
+            background-color: #f9f9f9;
+            color: var(--text-color);
             line-height: 1.6;
-            max-width: 100%;
-            overflow-x: hidden;
+            padding-top: 60px;
+            padding-bottom: 70px;
         }
-
-        /* 搜索状态栏 */
-        .search-status {
-            position: sticky;
+        
+        /* 顶部导航栏 */
+        .navbar {
+            position: fixed;
             top: 0;
-            background-color: #fff;
-            padding: 12px 16px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            z-index: 1000;
         }
-
-        .search-keyword {
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+        }
+        
+        .nav-menu {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-size: 10px;
+            padding: 8px 0;
+        }
+        
+        .nav-item i {
+            font-size: 20px;
             margin-bottom: 4px;
         }
-
-        .search-keyword-text {
-            font-size: 16px;
-            font-weight: 500;
-            margin-right: 4px;
+        
+        .nav-item.active {
+            color: var(--primary-color);
         }
-
-        .keyword-highlight {
-            color: #f44336;
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--primary-color);
+        }
+        
+        /* 搜索区 */
+        .search-container {
+            padding: 15px;
+            background-color: var(--white);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 4px 0 0 4px;
+            font-size: 15px;
+            outline: none;
+        }
+        
+        .search-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+        
+        .filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .filter-row {
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-label {
+            width: 80px;
+            font-size: 14px;
+            color: var(--gray-dark);
+        }
+        
+        .filter-select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        /* 法规列表 */
+        .regulations-container {
+            padding: 0 15px;
+        }
+        
+        .regulations-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .regulations-title {
+            font-size: 18px;
             font-weight: bold;
         }
-
-        .search-count {
-            font-size: 14px;
-            color: #666;
+        
+        .sort-dropdown {
+            position: relative;
         }
-
-        .modify-search {
-            margin-left: auto;
-            color: #2196F3;
-            font-size: 14px;
+        
+        .sort-btn {
             background: none;
             border: none;
-            cursor: pointer;
-        }
-
-        /* 筛选栏 */
-        .filter-bar {
-            background-color: #fff;
-            margin-top: 1px;
-            padding: 0 16px;
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease;
-        }
-
-        .filter-bar.expanded {
-            max-height: 250px;
-            padding: 12px 16px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .filter-toggle {
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 8px 0;
-            color: #666;
+            color: var(--gray-dark);
             font-size: 14px;
-            background-color: #fff;
-            border: none;
-            width: 100%;
-            cursor: pointer;
         }
-
-        .filter-toggle i {
-            margin-left: 6px;
-            transition: transform 0.3s ease;
+        
+        .sort-btn i {
+            margin-left: 5px;
         }
-
-        .filter-toggle.active i {
-            transform: rotate(180deg);
+        
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
         }
-
-        .filter-group {
-            margin-bottom: 12px;
+        
+        .regulation-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: relative;
         }
-
-        .filter-label {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            display: block;
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
-
-        .filter-options {
+        
+        .card-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
+            margin-bottom: 10px;
         }
-
-        .filter-option {
-            padding: 6px 12px;
-            border: 1px solid #ddd;
-            border-radius: 16px;
-            font-size: 13px;
-            background-color: #f9f9f9;
-            color: #333;
-            cursor: pointer;
-        }
-
-        .filter-option.active {
-            background-color: #e3f2fd;
-            border-color: #2196F3;
-            color: #2196F3;
-        }
-
-        .toggle-switch {
+        
+        .info-item {
             display: flex;
             align-items: center;
+            font-size: 13px;
+            color: var(--gray-dark);
         }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
+        
+        .info-item i {
+            margin-right: 5px;
+            font-size: 14px;
         }
-
-        .toggle-slider {
-            position: relative;
-            display: inline-block;
-            width: 40px;
-            height: 20px;
-            background-color: #ccc;
-            border-radius: 10px;
-            margin-right: 8px;
-            transition: .4s;
-            cursor: pointer;
-        }
-
-        .toggle-slider:before {
+        
+        .status-tag {
             position: absolute;
-            content: "";
-            height: 16px;
-            width: 16px;
-            left: 2px;
-            bottom: 2px;
-            background-color: white;
-            border-radius: 50%;
-            transition: .4s;
-        }
-
-        input:checked + .toggle-slider {
-            background-color: #2196F3;
-        }
-
-        input:checked + .toggle-slider:before {
-            transform: translateX(20px);
-        }
-
-        /* 智能排序控件 */
-        .sort-control {
-            background-color: #fff;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .sort-label {
-            font-size: 14px;
-            color: #666;
-            margin-right: 8px;
-        }
-
-        .sort-select {
-            flex: 1;
-            padding: 6px 8px;
-            border: 1px solid #ddd;
+            top: 15px;
+            right: 15px;
+            padding: 2px 8px;
             border-radius: 4px;
-            font-size: 14px;
-            background-color: #fff;
-        }
-
-        /* 结果列表 */
-        .results-list {
-            background-color: #fff;
-            margin-bottom: 60px; /* 为底部推荐栏留出空间 */
-        }
-
-        .result-item {
-            padding: 16px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .result-title {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-        }
-
-        .relevance-stars {
-            margin-left: 8px;
-            color: #ff9800;
-            font-size: 14px;
-        }
-
-        .result-snippet {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .snippet-text {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .snippet-highlight {
-            background-color: #fff9c4;
-            padding: 0 2px;
-        }
-
-        .snippet-highlight.high {
-            background-color: #ffccbc;
-            color: #d84315;
-            font-weight: 500;
-        }
-
-        .result-metadata {
-            display: none; /* 默认隐藏，点击展开 */
-            margin-top: 12px;
-            font-size: 13px;
-            color: #666;
-        }
-
-        .metadata-item {
-            display: inline-block;
-            margin-right: 12px;
-        }
-
-        .result-actions {
-            display: flex;
-            margin-top: 8px;
-        }
-
-        .action-button {
-            display: flex;
-            align-items: center;
-            font-size: 13px;
-            color: #2196F3;
-            background: none;
-            border: none;
-            padding: 4px 8px;
-            margin-right: 12px;
-            cursor: pointer;
-        }
-
-        .action-button i {
-            margin-right: 4px;
-            font-size: 16px;
-        }
-
-        .expand-toggle {
-            font-size: 13px;
-            color: #2196F3;
-            background: none;
-            border: none;
-            padding: 4px 0;
-            cursor: pointer;
-        }
-
-        /* 底部推荐栏 */
-        .recommendation-panel {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #fff;
-            padding: 12px 16px;
-            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
-            border-top: 1px solid #eee;
-            z-index: 90;
-        }
-
-        .recommendation-label {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .recommendation-tags {
-            display: flex;
-            overflow-x: auto;
-            gap: 8px;
-            padding-bottom: 4px;
-        }
-
-        .recommendation-tag {
-            white-space: nowrap;
-            padding: 6px 12px;
-            background-color: #e3f2fd;
-            color: #2196F3;
-            border-radius: 16px;
-            font-size: 13px;
-        }
-
-        /* 操作栏 */
-        .action-bar {
-            position: fixed;
-            bottom: 70px;
-            right: 16px;
-            z-index: 95;
-        }
-
-        .action-fab {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background-color: #2196F3;
+            font-size: 12px;
+            background-color: #4caf50;
             color: white;
+        }
+        
+        .status-tag.updated {
+            background-color: var(--accent-color);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .page-btn {
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 3px 8px rgba(33, 150, 243, 0.4);
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            background-color: var(--white);
             cursor: pointer;
         }
-
-        .action-menu {
-            position: absolute;
-            bottom: 60px;
-            right: 0;
-            background-color: white;
-            border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            width: 120px;
-            display: none;
+        
+        .page-btn.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
         }
-
-        .action-menu.active {
-            display: block;
-        }
-
-        .action-menu-item {
-            padding: 10px 16px;
-            font-size: 14px;
-            color: #333;
-            display: flex;
-            align-items: center;
-        }
-
-        .action-menu-item i {
-            margin-right: 8px;
-            font-size: 16px;
-            color: #555;
-        }
-
-        /* 片段预览浮层 */
-        .preview-modal {
+        
+        /* 详情面板 */
+        .detail-panel {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 200;
-            display: none;
-        }
-
-        .preview-modal.active {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .preview-content {
-            width: 90%;
-            max-height: 80%;
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            z-index: 2000;
             overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            padding-bottom: 70px;
         }
-
-        .preview-header {
+        
+        .detail-panel.active {
+            transform: translateX(0);
+        }
+        
+        .detail-header {
+            position: sticky;
+            top: 0;
+            padding: 15px;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
+            z-index: 10;
         }
-
-        .preview-title {
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .preview-close {
+        
+        .back-btn {
+            background: none;
+            border: none;
             font-size: 20px;
-            color: #666;
+            cursor: pointer;
+        }
+        
+        .detail-title {
+            font-size: 18px;
+            font-weight: bold;
+            flex: 1;
+            margin: 0 15px;
+            text-align: center;
+        }
+        
+        .action-btns {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--gray-dark);
+            cursor: pointer;
+        }
+        
+        .detail-content {
+            padding: 15px;
+        }
+        
+        .content-tabs {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
             background: none;
             border: none;
             cursor: pointer;
-        }
-
-        .preview-breadcrumb {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 12px;
-        }
-
-        .preview-text {
             font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-
-        .preview-related {
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #eee;
-        }
-
-        .preview-related-title {
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 8px;
-        }
-
-        .preview-related-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .preview-related-item {
-            font-size: 13px;
-            padding: 6px 12px;
-            background-color: #f5f5f5;
-            border-radius: 16px;
-            color: #333;
+            color: var(--gray-dark);
         }
         
-        /* 术语解释卡片 */
-        .term-explanation {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: white;
-            border-top-left-radius: 16px;
-            border-top-right-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            z-index: 150;
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
         }
         
-        .term-explanation.active {
-            transform: translateY(0);
+        .tab-content {
+            display: none;
         }
         
-        .term-title {
+        .tab-content.active {
+            display: block;
+        }
+        
+        .regulation-text {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        
+        .regulation-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
             font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .interpretation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .interpretation-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .interpretation-title i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        /* 筛选侧边栏 */
+        .filter-sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
+            z-index: 2000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            padding: 15px;
+            overflow-y: auto;
+        }
+        
+        .filter-sidebar.active {
+            transform: translateX(0);
+        }
+        
+        .sidebar-header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
-        .term-close {
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .close-btn {
             background: none;
             border: none;
-            font-size: 18px;
-            color: #666;
+            font-size: 20px;
+            cursor: pointer;
         }
         
-        .term-content {
+        .filter-group {
+            margin-bottom: 20px;
+        }
+        
+        .filter-group-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .industry-tree, .region-select {
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            padding: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .tree-item {
+            margin-bottom: 10px;
+        }
+        
+        .tree-parent {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .tree-children {
+            padding-left: 20px;
+        }
+        
+        .tree-child {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tree-child input {
+            margin-right: 8px;
+        }
+        
+        .date-range {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .date-input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .filter-submit, .filter-reset {
+            flex: 1;
+            padding: 12px;
+            border-radius: 4px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        
+        .filter-submit {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .filter-reset {
+            background-color: var(--gray);
+            color: var(--text-color);
+        }
+        
+        /* 通知系统 */
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            font-size: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .update-toast {
+            position: fixed;
+            bottom: 70px;
+            left: 15px;
+            right: 15px;
+            background-color: rgba(0,0,0,0.8);
+            color: var(--white);
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1001;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .update-toast.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .toast-message {
+            flex: 1;
             font-size: 14px;
-            line-height: 1.6;
-            color: #333;
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        /* 加载更多按钮 */
+        .load-more {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--gray-light);
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            color: var(--gray-dark);
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
         }
     </style>
-    <!-- 使用CDN加载Font Awesome图标 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- 搜索状态栏 -->
-    <div class="search-status">
-        <div class="search-keyword">
-            <div class="search-keyword-text">当前搜索：<span class="keyword-highlight">细则</span></div>
-            <button class="modify-search"><i class="fas fa-edit"></i> 修改</button>
+    <!-- 顶部导航栏 -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-balance-scale"></i>法规查询
         </div>
-        <div class="search-count">共 57 条结果</div>
-    </div>
-
-    <!-- 筛选栏切换按钮 -->
-    <button class="filter-toggle">
-        高级筛选 <i class="fas fa-chevron-down"></i>
-    </button>
-
-    <!-- 筛选栏 -->
-    <div class="filter-bar">
-        <div class="filter-group">
-            <label class="filter-label">关键词组合</label>
-            <div class="filter-options">
-                <div class="filter-option active">且（AND）</div>
-                <div class="filter-option">或（OR）</div>
-            </div>
+        <div class="user-avatar" id="userAvatar">
+            <i class="fas fa-user"></i>
         </div>
-        
-        <div class="filter-group">
-            <label class="filter-label">搜索范围</label>
-            <div class="filter-options">
-                <div class="filter-option active">全文</div>
-                <div class="filter-option">仅标题</div>
-                <div class="filter-option">仅条款</div>
-            </div>
-        </div>
-        
-        <div class="filter-group">
-            <label class="filter-label">精确匹配</label>
-            <div class="toggle-switch">
-                <input type="checkbox" id="exact-match">
-                <label class="toggle-slider" for="exact-match"></label>
-                <span>仅显示精确匹配结果</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- 智能排序控件 -->
-    <div class="sort-control">
-        <div class="sort-label">排序方式：</div>
-        <select class="sort-select">
-            <option value="relevance">按相关度</option>
-            <option value="date">按最新更新</option>
-            <option value="citations">按引用量</option>
-        </select>
-    </div>
-
-    <!-- 结果列表 -->
-    <div class="results-list">
-        <!-- 结果项1 -->
-        <div class="result-item">
-            <div class="result-title">
-                金融机构反洗钱管理办法实施<span class="keyword-highlight">细则</span>
-                <span class="relevance-stars">⭐⭐⭐</span>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    第三条 本<span class="snippet-highlight high">细则</span>所称金融机构是指在中华人民共和国境内依法设立的从事金融业务的政策性银行、商业银行、信用合作社等吸收公众存款的金融机构...
-                </div>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    第十五条 金融机构应当根据本<span class="snippet-highlight high">细则</span>制定本机构的交易监测标准，并报中国人民银行备案。交易监测标准应当包括对现金交易、跨境交易、可疑交易的监测...
-                </div>
-            </div>
-            <div class="result-metadata">
-                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
-                <div class="metadata-item"><i class="fas fa-industry"></i> 金融行业</div>
-                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2022-06-15更新</div>
-            </div>
-            <div class="result-actions">
-                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
-                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
-                <button class="expand-toggle">查看更多</button>
-            </div>
-        </div>
-
-        <!-- 结果项2 -->
-        <div class="result-item">
-            <div class="result-title">
-                互联网金融风险管理<span class="keyword-highlight">细则</span>
-                <span class="relevance-stars">⭐⭐⭐</span>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    根据《互联网金融风险管理规定》制定本<span class="snippet-highlight high">细则</span>，旨在规范互联网金融业务风险管理工作，防范系统性金融风险...
-                </div>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    第八条 本<span class="snippet-highlight high">细则</span>适用于经金融监管部门批准设立的开展互联网金融业务的各类金融机构以及互联网金融平台...
-                </div>
-            </div>
-            <div class="result-metadata">
-                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
-                <div class="metadata-item"><i class="fas fa-industry"></i> 互联网金融</div>
-                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2023-03-28更新</div>
-            </div>
-            <div class="result-actions">
-                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
-                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
-                <button class="expand-toggle">查看更多</button>
-            </div>
-        </div>
-
-        <!-- 结果项3 -->
-        <div class="result-item">
-            <div class="result-title">
-                数据安全管理条例实施<span class="keyword-highlight">细则</span>
-                <span class="relevance-stars">⭐⭐</span>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    为贯彻落实《数据安全法》和《数据安全管理条例》，制定本<span class="snippet-highlight">细则</span>。本<span class="snippet-highlight">细则</span>适用于各类组织开展数据处理活动的安全管理...
-                </div>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    各行业主管部门可以依据本<span class="snippet-highlight">细则</span>，结合行业特点制定行业数据分类分级指南，指导、监督本行业组织开展数据分类分级工作...
-                </div>
-            </div>
-            <div class="result-metadata">
-                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
-                <div class="metadata-item"><i class="fas fa-industry"></i> 信息技术</div>
-                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2023-09-10更新</div>
-            </div>
-            <div class="result-actions">
-                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
-                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
-                <button class="expand-toggle">查看更多</button>
-            </div>
-        </div>
-
-        <!-- 结果项4 -->
-        <div class="result-item">
-            <div class="result-title">
-                个人信息保护法配套<span class="keyword-highlight">细则</span>
-                <span class="relevance-stars">⭐⭐</span>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    依据《中华人民共和国个人信息保护法》相关规定，制定本<span class="snippet-highlight">细则</span>。本<span class="snippet-highlight">细则</span>旨在规范个人信息处理活动，保障个人信息权益...
-                </div>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    重要数据处理者应当按照国家有关规定，制定<span class="snippet-highlight">细则</span>，明确重要数据范围、保护措施和责任人，并向所在地省级网信部门备案...
-                </div>
-            </div>
-            <div class="result-metadata">
-                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
-                <div class="metadata-item"><i class="fas fa-industry"></i> 数据保护</div>
-                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2023-07-22更新</div>
-            </div>
-            <div class="result-actions">
-                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
-                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
-                <button class="expand-toggle">查看更多</button>
-            </div>
-        </div>
-
-        <!-- 结果项5 -->
-        <div class="result-item">
-            <div class="result-title">
-                医疗器械监督管理<span class="keyword-highlight">细则</span>
-                <span class="relevance-stars">⭐⭐</span>
-            </div>
-            <div class="result-snippet">
-                <div class="snippet-text">
-                    本<span class="snippet-highlight">细则</span>是根据《医疗器械监督管理条例》制定的配套规范，旨在加强医疗器械全生命周期管理，保障公众健康安全...
-                </div>
-            </div>
-            <div class="result-metadata">
-                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
-                <div class="metadata-item"><i class="fas fa-industry"></i> 医疗健康</div>
-                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2024-01-15更新</div>
-            </div>
-            <div class="result-actions">
-                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
-                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
-                <button class="expand-toggle">查看更多</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- 关联推荐底部栏 -->
-    <div class="recommendation-panel">
-        <div class="recommendation-label">相关推荐</div>
-        <div class="recommendation-tags">
-            <div class="recommendation-tag">实施细则</div>
-            <div class="recommendation-tag">管理办法</div>
-            <div class="recommendation-tag">监督细则</div>
-            <div class="recommendation-tag">金融监管</div>
-            <div class="recommendation-tag">细则制定</div>
-            <div class="recommendation-tag">规章制度</div>
-        </div>
-    </div>
-
-    <!-- 操作悬浮按钮 -->
-    <div class="action-bar">
-        <div class="action-fab">
-            <i class="fas fa-ellipsis-v"></i>
-        </div>
-        <div class="action-menu">
-            <div class="action-menu-item">
-                <i class="fas fa-download"></i> 导出结果
-            </div>
-            <div class="action-menu-item">
-                <i class="fas fa-balance-scale"></i> 对比模式
-            </div>
-            <div class="action-menu-item">
-                <i class="fas fa-chart-pie"></i> 分析结果
-            </div>
-        </div>
-    </div>
-
-    <!-- 片段预览浮层 -->
-    <div class="preview-modal">
-        <div class="preview-content">
-            <div class="preview-header">
-                <div class="preview-title">金融机构反洗钱管理办法实施细则</div>
-                <button class="preview-close">&times;</button>
-            </div>
-            <div class="preview-breadcrumb">
-                第一章 > 第三条
-            </div>
-            <div class="preview-text">
-                第三条 本<span class="snippet-highlight high">细则</span>所称金融机构是指在中华人民共和国境内依法设立的从事金融业务的政策性银行、商业银行、信用合作社等吸收公众存款的金融机构，以及保险公司、证券公司、期货公司、基金管理公司、信托投资公司等金融机构。
-                <br><br>
-                外国金融机构在中华人民共和国境内依法设立的分支机构，适用本<span class="snippet-highlight high">细则</span>对金融机构的规定。
-            </div>
-            <div class="preview-related">
-                <div class="preview-related-title">关联条款</div>
-                <div class="preview-related-items">
-                    <div class="preview-related-item">第五条</div>
-                    <div class="preview-related-item">第十二条</div>
-                    <div class="preview-related-item">第十五条</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </header>
     
-    <!-- 术语解释卡片 -->
-    <div class="term-explanation">
-        <div class="term-title">
-            <span>细则</span>
-            <button class="term-close">&times;</button>
-        </div>
-        <div class="term-content">
-            <p><strong>细则</strong>是指对法律、法规、规章等上位法的具体实施方法和步骤所做的细化规定，是落实上位法的配套规范性文件。</p>
-            <p>细则通常由主管部门依据上位法制定，具有较强的操作性和实务指导性，但法律效力低于上位法。</p>
-        </div>
-    </div>
-
-    <script>
-        // 筛选栏展开/收起
-        const filterToggle = document.querySelector('.filter-toggle');
-        const filterBar = document.querySelector('.filter-bar');
-
-        filterToggle.addEventListener('click', function() {
-            filterBar.classList.toggle('expanded');
-            filterToggle.classList.toggle('active');
-        });
-
-        // 筛选选项切换
-        const filterOptions = document.querySelectorAll('.filter-option');
-        filterOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                // 获取同组的选项
-                const siblings = this.parentNode.querySelectorAll('.filter-option');
-                siblings.forEach(sib => sib.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // 查看更多按钮切换显示元数据
-        const expandToggles = document.querySelectorAll('.expand-toggle');
-        expandToggles.forEach(toggle => {
-            toggle.addEventListener('click', function() {
-                const resultItem = this.closest('.result-item');
-                const metadata = resultItem.querySelector('.result-metadata');
+    <!-- 页面主体 -->
+    <main>
+        <!-- 搜索区 -->
+        <section class="search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索法规关键词...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-section">
+                <div class="filter-row">
+                    <span class="filter-label">地区</span>
+                    <select class="filter-select">
+                        <option value="">全部地区</option>
+                        <option value="national">全国性</option>
+                        <option value="beijing">北京市</option>
+                        <option value="shanghai">上海市</option>
+                        <option value="guangdong">广东省</option>
+                        <option value="jiangsu">江苏省</option>
+                    </select>
+                </div>
+                <div class="filter-row">
+                    <span class="filter-label">行业</span>
+                    <select class="filter-select">
+                        <option value="">全部行业</option>
+                        <option value="finance">金融</option>
+                        <option value="it">信息技术</option>
+                        <option value="health">医疗健康</option>
+                        <option value="education">教育</option>
+                        <option value="retail">零售</option>
+                    </select>
+                </div>
+                <div class="filter-row">
+                    <span class="filter-label">生效时间</span>
+                    <select class="filter-select">
+                        <option value="">全部时间</option>
+                        <option value="last_month">最近一个月</option>
+                        <option value="last_quarter">最近一个季度</option>
+                        <option value="last_year">最近一年</option>
+                        <option value="future">即将生效</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 法规列表 -->
+        <section class="regulations-container">
+            <div class="regulations-header">
+                <h2 class="regulations-title">最新法规</h2>
+                <div class="sort-dropdown">
+                    <button class="sort-btn" id="sortBtn">
+                        <span>按时间排序</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card-container" id="regulationsList">
+                <!-- 卡片1 -->
+                <div class="regulation-card" data-id="1">
+                    <div class="status-tag updated">更新</div>
+                    <h3 class="card-title">《数据安全法》实施细则（2025版）</h3>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>全国性</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-industry"></i>
+                            <span>信息技术</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>2025-03-01生效</span>
+                        </div>
+                    </div>
+                </div>
                 
-                if (metadata.style.display === 'block') {
-                    metadata.style.display = 'none';
-                    this.textContent = '查看更多';
-                } else {
-                    metadata.style.display = 'block';
-                    this.textContent = '收起';
-                }
-            });
-        });
-
-        // 操作菜单
-        const actionFab = document.querySelector('.action-fab');
-        const actionMenu = document.querySelector('.action-menu');
-
-        actionFab.addEventListener('click', function() {
-            actionMenu.classList.toggle('active');
-        });
-
-        // 关闭操作菜单点击外部
-        document.addEventListener('click', function(event) {
-            if (!event.target.closest('.action-bar
+                <!-- 卡片2 -->
+                <div class="regulation-card" data-id="2">
+                    <h3 class="card-title">北京市互联网金融监管条例</h3>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>北京市</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-industry"></i>
+                            <span>金融</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>2025-02-15生效</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片3 -->
+                <div class="regulation-card" data-id="3">
+                    <h3 class="card-title">《电子商务法》修订案（2025年版）</h3>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>全国性</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-industry"></i>
+                            <span>零售</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>2025-04-01生效</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片4 -->
+                <div class="regulation-card" data-id="4">
+                    <div class="status-tag">新增</div>
+                    <h3 class="card-title">广东省医疗数据管理规范</h3>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>广东省</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-industry"></i>
+                            <span>医疗健康</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>2025-05-01生效</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 卡片5 -->
+                <div class="regulation-card" data-id="5">
+                    <h3 class="card-title">上海市人工智能应用安全管理办法</h3>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>上海市</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-industry"></i>
+                            <span>信息技术</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>2025-01-15生效</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="load-more" id="loadMoreBtn">加载更多</button>
+            
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">
+                    <i class="fas fa-ellipsis-h"></i>
+                </button>
+                <button class="page-btn">10</button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 底部导航 -->
+    <nav class="nav-menu">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-filter"></i>
+            <span>筛选</span>
+            <div class="notification-badge" id="filterBadge">3</div>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="far fa-bookmark"></i>
+            <span>收藏</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="far fa-bell"></i>
+            <span>通知</span>
+            <div class="notification-badge" id="notificationBadge">5</div>
+        </a>
+    </nav>
+    
+    <!-- 详情面板 -->
+    <div class="detail-panel" id="detailPanel">
+        <div class="detail-header">
+            <button class="back-btn" id="backBtn">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <h2 class="detail-title">《数据安全法》实施细则（2025版）</h2>
+            <div class="action-btns">
+                <button class="action-btn">
+                    <i class="far fa-bookmark"></i>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="content-tabs">
+            <button class="tab-btn active" data-tab="law">法规原文</button>
+            <button class="tab-btn" data-tab="interpretation">官方解读</button>
+            <button class="tab-btn" data-tab="updates">更新记录</button>
+        </div>
+        
+        <div class="detail-content">
+            <div class="tab-content active" id="lawContent">
+                <div class="regulation-section">
+                    <h3 class="section-title">第一章 总则</h3>
+                    <p class="regulation-text">
+                        第一条 为了规范数据处理活动，保障数据安全，促进数据开发利用，保护个人、组织的合法权益，维护国家主权、安全和发展利益，根据《中华人民共和国数据安全法》，制定本实施细则。
+                    </p>
+                    <p class="regulation-text">
+                        第二条 在中华人民共和国境内开展数据处理活动及其安全监管，适用本细则。
+                    </p>
+                    <p class="regulation-text">
+                        本细则所称数据，是指任何以电子或者其他方式对信息的记录。
+                    </p>
+                    <p class="regulation-text">
+                        本细则所称数据处理，包括数据的收集、存储、使用、加工、传输、提供、公开等。
+                    </p>
+                </div>
+                
+                <div class="regulation-section">
+                    <h3 class="section-title">第二章 数据安全与发展</h3>
+                    <p class="regulation-text">
+                        第三条 国家统筹发展和安全，坚持创新驱动发展，保障数据安全，促进数据有效利用和依法合理流动，促进以数据为关键要素的数字经济发展。
+                    </p>
+                    <p class="regulation-text">
+                        第四条 国家实施大数据战略，推进数据基础设施建设，鼓励数据相关技术开发、创新和应用，建立健全数字经济新业态统计体系，促进数据安全、有序、高效的流通和使用，创新和完善数据治理，提高经济社会发展的数字化、智能化水平。
+                    </p>
+                </div>
+                
+                <div class="regulation-section">
+                    <h3 class="section-title">第三章 数据分类分级保护</h3>
+                    <p class="regulation-text">
+                        第五条 国家建立数据分类分级保护制度，根据数据在经济社会发展中的重要程度以及一旦遭到篡改、破坏、泄露或者非法获取、非法利用，对国家安全、公共利益或者个人、组织合法权益造成的危害程度，对数据实行分类分级保护。
+                    </p>
+                    <p class="regulation-text">
+                        国家数据安全工作协调机制统筹协调有关部门制定重要数据目录，加强对重要数据的保护。
+                    </p>
+                    <p class="regulation-text">
+                        相关部门、各地区可以根据本部门、本地区的实际情况，制定本部门、本地区的重要数据具体目录，报国家数据安全工作协调机制备案。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="interpretationContent">
+                <div class="interpretation">
+                    <div class="interpretation-title">
+                        <i class="fas fa-info-circle"></i>
+                        <span>关于第一章总则的解读</span>
+                    </div>
+                    <p>《数据安全法》实施细则进一步明确了适用范围，将"数据"和"数据处理"的概念界定得更加具体。细则规定适用于在中国境内开展的数据处理活动及安全监管，同时明确数据是指以电子或其他方式记录的信息，数据处理包括收集、存储、使用等多个环节。</p>
+                </div>
+                
+                <div class="interpretation">
+                    <div class="interpretation-title">
+                        <i class="fas fa-info-circle"></i>
+                        <span>关于第二章数据安全与发展的解读</span>
+                    </div>
+                    <p>第二章强调了数据安全与发展的平衡关系，体现了"创新驱动发展，保障数据安全"的原则。国家实施大数据战略，推进数据基础设施建设，鼓励数据相关技术开发和创新应用，意味着企业在合规前提下可以</content>
