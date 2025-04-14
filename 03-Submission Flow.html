@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例上传</title>
+    <style>
+        :root {
+            --primary-color: #4a6cfa;
+            --success-color: #34c759;
+            --warning-color: #ff9500;
+            --danger-color: #ff3b30;
+            --background-color: #f5f7fa;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 100%;
+            padding: 16px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        
+        header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .progress-container {
+            margin-bottom: 24px;
+        }
+        
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 12px;
+        }
+        
+        .progress-bar::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+        
+        .progress-bar-fill {
+            position: absolute;
+            top:.12px;
+            left: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            z-index: 2;
+            transition: width 0.4s ease;
+        }
+        
+        .step {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 25%;
+        }
+        
+        .step-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid var(--border-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active .step-circle {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .step.completed .step-circle {
+            border-color: var(--primary-color);
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        .form-section {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: var(--primary-color);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .btn:hover {
+            background-color: #3a5cdb;
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: var(--text-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d0d0d0;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 24px;
+        }
+        
+        .sensitive-highlight {
+            background-color: #ffeded;
+            border-radius: 4px;
+            padding: 0 4px;
+            text-decoration: line-through;
+            color: var(--danger-color);
+        }
+        
+        .ai-assistant {
+            background-color: #f0f5ff;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .ai-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .ai-message {
+            flex: 1;
+        }
+        
+        .blockchain-container {
+            margin: 24px 0;
+            text-align: center;
+        }
+        
+        .hash-value {
+            font-family: monospace;
+            font-size: 14px;
+            background-color: #f0f5ff;
+            padding: 12px;
+            border-radius: 8px;
+            word-break: break-all;
+            margin-top: 12px;
+        }
+        
+        .success-container {
+            text-align: center;
+            padding: 32px 0;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--success-color);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+        
+        .points-container {
+            background-color: #f0f5ff;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 24px 0;
+            text-align: center;
+        }
+        
+        .points-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 8px 0;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+        
+        @keyframes blockchainAnimation {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+        
+        .blockchain-progress {
+            height: 6px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+            margin: 12px 0;
+            width: 0%;
+        }
+        
+        .animate-blockchain {
+            animation: blockchainAnimation 3s ease-in-out forwards;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        
+        .checkbox-container input {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .tos-text {
+            font-size: 14px;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>案例上传</h1>
+            <p>分享您的经验，获取积分奖励</p>
+        </header>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progressBarFill" style="width: 25%"></div>
+                <div class="step active" data-step="1">
+                    <div class="step-circle">1</div>
+                    <div class="step-label">基础信息</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-circle">2</div>
+                    <div class="step-label">内容编辑</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-circle">3</div>
+                    <div class="step-label">脱敏确认</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-circle">4</div>
+                    <div class="step-label">协议签署</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 第1步: 基础信息 -->
+        <div class="form-section active" id="step1">
+            <h2>基础信息</h2>
+            <div class="form-group">
+                <label for="title">案例标题</label>
+                <input type="text" id="title" placeholder="请输入标题（20字以内）" maxlength="20">
+            </div>
+            <div class="form-group">
+                <label for="category">案例类别</label>
+                <select id="category">
+                    <option value="">请选择类别</option>
+                    <option value="finance">金融</option>
+                    <option value="healthcare">医疗健康</option>
+                    <option value="education">教育</option>
+                    <option value="technology">科技</option>
+                    <option value="other">其他</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="keywords">关键词</label>
+                <input type="text" id="keywords" placeholder="请输入关键词，用逗号分隔">
+            </div>
+            <div class="buttons">
+                <div></div> <!-- 空白占位，保持布局平衡 -->
+                <button class="btn" onclick="nextStep(1)">下一步</button>
+            </div>
+        </div>
+        
+        <!-- 第2步: 内容编辑 -->
+        <div class="form-section" id="step2">
+            <h2>内容编辑</h2>
+            <div class="ai-assistant">
+                <div class="ai-icon">AI</div>
+                <div class="ai-message">
+                    <p>请编辑您的案例内容，我将帮助您自动检测并标记敏感信息。</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="content">案例详情</label>
+                <textarea id="content" placeholder="请详细描述您的案例..." oninput="checkSensitiveContent(this.value)"></textarea>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-secondary" onclick="prevStep(2)">上一步</button>
+                <button class="btn" onclick="nextStep(2)">下一步</button>
+            </div>
+        </div>
+        
+        <!-- 第3步: 脱敏确认 -->
+        <div class="form-section" id="step3">
+            <h2>脱敏确认</h2>
+            <div class="ai-assistant">
+                <div class="ai-icon">AI</div>
+                <div class="ai-message">
+                    <p>我已帮您自动标记以下敏感信息，请确认是否正确。如有需要，您可以返回编辑。</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>案例内容预览（已脱敏）</label>
+                <div id="redactedContent" style="background: #f9f9f9; padding: 12px; border-radius: 8px; min-height: 120px;"></div>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-secondary" onclick="prevStep(3)">返回编辑</button>
+                <button class="btn" onclick="nextStep(3)">确认并继续</button>
+            </div>
+        </div>
+        
+        <!-- 第4步: 协议签署 -->
+        <div class="form-section" id="step4">
+            <h2>协议签署</h2>
+            <div class="form-group">
+                <p>请阅读并同意以下协议条款：</p>
+                <div style="height: 120px; overflow-y: auto; border: 1px solid #e0e0e0; padding: 10px; margin: 10px 0; border-radius: 8px; font-size: 14px;">
+                    <p>《案例上传协议》</p>
+                    <p>1. 您保证上传的案例内容真实、准确，且不侵犯他人的知识产权及隐私权。</p>
+                    <p>2. 您同意我们对您上传的内容进行必要的编辑和处理，以确保内容符合相关法律法规。</p>
+                    <p>3. 您授权我们将您的案例内容进行区块链存证，确保内容的不可篡改性和可追溯性。</p>
+                    <p>4. 您将获得案例上传积分奖励，积分可在平台内使用。</p>
+                    <p>5. 您上传的内容如有违反法律法规或平台规定，我们有权删除相关内容并追究相关责任。</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="agreeTerms">
+                    <div class="tos-text">我已阅读并同意上述协议条款</div>
+                </div>
+            </div>
+            <div class="blockchain-container">
+                <p>上传成功后，我们将为您的案例生成区块链存证</p>
+            </div>
+            <div class="buttons">
+                <button class="btn btn-secondary" onclick="prevStep(4)">上一步</button>
+                <button class="btn" id="submitBtn" onclick="submitCase()" disabled>提交案例</button>
+            </div>
+        </div>
+        
+        <!-- 成功页面 -->
+        <div class="form-section" id="success">
+            <div class="success-container">
+                <div class="success-icon">✓</div>
+                <h2>提交成功！</h2>
+                <p>感谢您的贡献，您的案例已成功上传</p>
+                
+                <div class="blockchain-container">
+                    <h3>区块链存证已生成</h3>
+                    <div class="blockchain-progress" id="blockchainProgress"></div>
+                    <div class="hash-value" id="hashValue"></div>
+                </div>
+                
+                <div class="points-container">
+                    <h3>恭喜您获得</h3>
+                    <div class="points-value" id="pointsValue">+50</div>
+                    <p>积分已添加到您的账户</p>
+                </div>
+                
+                <button class="btn" onclick="resetForm()">返回首页</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        let contentWithSensitiveWords = '';
+        
+        // 示例敏感词列表
+        const sensitiveWords = ['身份证', '手机号', '银行卡', '密码', '地址'];
+        
+        // 监听协议签署复选框变化
+        document.getElementById('agreeTerms').addEventListener('change', function() {
+            document.getElementById('submitBtn').disabled = !this.checked;
+        });
+        
+        // 检测敏感内容
+        function checkSensitiveContent(text) {
+            contentWithSensitiveWords = text;
+            
+            // 模拟AI检测，寻找敏感词并标记
+            let redactedText = text;
+            sensitiveWords.forEach(word => {
+                if (text.includes(word)) {
+                    // 为敏感词添加高亮样式
+                    const regex = new RegExp(word, 'g');
+                    redactedText = redactedText.replace(regex, `<span class="sensitive-highlight">${word}</span>`);
+                    
+                    // 显示AI助手提示
+                    showAIAlert(`检测到敏感信息"${word}"，已自动标记`);
+                }
+            });
+            
+            // 更新脱敏预览
+            document.getElementById('redactedContent').innerHTML = redactedText || '<p style="color: #999;">未检测到内容</p>';
+        }
+        
+        // 显示AI助手提示
+        function showAIAlert(message) {
+            const aiAssistants = document.querySelectorAll('.ai-assistant');
+            const lastAssistant = aiAssistants[aiAssistants.length - 1];
+            
+            if (lastAssistant) {
+                const aiMessage = lastAssistant.querySelector('.ai-message');
+                aiMessage.innerHTML = `<p>${message}</p>`;
+                lastAssistant.classList.add('pulse');
+                
+                setTimeout(() => {
+                    lastAssistant.classList.remove('pulse');
+                }, 500);
+            }
+        }
+        
+        // 前进到下一步
+        function nextStep(step) {
+            // 基本表单验证
+            if (step === 1) {
+                const title = document.getElementById('title').value;
+                const category = document.getElementById('category').value;
+                
+                if (!title) {
+                    alert('请输入案例标题');
+                    return;
+                }
+                
+                if (!category) {
+                    alert('请选择案例类别');
+                    return;
+                }
+            }
+            
+            if (step === 2) {
+                const content = document.getElementById('content').value;
+                
+                if (!content || content.length < 10) {
+                    alert('请至少输入10个字的案例内容');
+                    return;
+                }
+                
+                // 重新检查一次内容，确保脱敏预览是最新的
+                checkSensitiveContent(content);
+            }
+            
+            // 隐藏当前步骤
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            
+            // 更新步骤
+            currentStep = currentStep + 1;
+            
+            // 更新进度条
+            updateProgress();
+            
+            // 显示新步骤
+            document.getElementById(`step${currentStep}`).classList.add('active');
+        }
+        
+        // 返回上一步
+        function prevStep(step) {
+            // 隐藏当前步骤
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            
+            // 更新步骤
+            currentStep = currentStep - 1;
+            
+            // 更新进度条
+            updateProgress();
+            
+            // 显示新步骤
+            document.getElementById(`step${currentStep}`).classList.add('active');
+        }
+        
+        // 更新进度条
+        function updateProgress() {
+            // 更新进度条填充
+            const progressPercentage = (currentStep / 4) * 100;
+            document.getElementById('progressBarFill').style.width = `${progressPercentage}%`;
+            
+            // 更新步骤状态
+            document.querySelectorAll('.step').forEach(step => {
+                const stepNumber = parseInt(step.getAttribute('data-step'));
+                
+                if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                    step.classList.remove('active');
+                } else if (stepNumber === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            });
+        }
+        
+        // 提交案例
+        function submitCase() {
+            // 隐藏当前步骤
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+            
+            // 显示成功页面
+            document.getElementById('success').classList.add('active');
+            
+            // 模拟区块链存证过程
+            setTimeout(() => {
+                document.getElementById('blockchainProgress').classList.add('animate-blockchain');
+                
+                setTimeout(() => {
+                    // 生成随机哈希值
+                    const hashValue = generateHashValue();
+                    document.getElementById('hashValue').textContent = hashValue;
+                    
+                    // 积分动画
+                    setTimeout(() => {
+                        document.getElementById('pointsValue').classList.add('pulse');
+                    }, 500);
+                }, 3000);
+            }, 1000);
+        }
+        
+        // 生成哈希值
+        function generateHashValue() {
+            const characters = '0123456789abcdef';
+            let hash = '0x';
+            
+            for (let i = 0; i < 64; i++) {
+                hash += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            
+            return hash;
+        }
+        
+        // 重置表单
+        function resetForm() {
+            window.location.reload();
+        }
+        
+        // 页面加载时，在内容框添加示例内容以演示AI脱敏
+        window.onload = function() {
+            const demoContent = "我叫张三，身份证号是330102199001011234，手机号是13812345678。我住在杭州市西湖区某某路123号，平时使用的银行卡是6225880120945671，支付密码是123456。";
+            document.getElementById('content').value = demoContent;
+            checkSensitiveContent(demoContent);
+        };
+    </script>
+</body>
+</html>
