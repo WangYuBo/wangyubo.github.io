@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>细则关键词查询结果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f6fa;
+            color: #333;
+            line-height: 1.6;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* 搜索状态栏 */
+        .search-status {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            padding: 12px 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .search-keyword {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .search-keyword-text {
+            font-size: 16px;
+            font-weight: 500;
+            margin-right: 4px;
+        }
+
+        .keyword-highlight {
+            color: #f44336;
+            font-weight: bold;
+        }
+
+        .search-count {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .modify-search {
+            margin-left: auto;
+            color: #2196F3;
+            font-size: 14px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 筛选栏 */
+        .filter-bar {
+            background-color: #fff;
+            margin-top: 1px;
+            padding: 0 16px;
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease;
+        }
+
+        .filter-bar.expanded {
+            max-height: 250px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 0;
+            color: #666;
+            font-size: 14px;
+            background-color: #fff;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .filter-toggle i {
+            margin-left: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .filter-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        .filter-group {
+            margin-bottom: 12px;
+        }
+
+        .filter-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .filter-option {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            font-size: 13px;
+            background-color: #f9f9f9;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .filter-option.active {
+            background-color: #e3f2fd;
+            border-color: #2196F3;
+            color: #2196F3;
+        }
+
+        .toggle-switch {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 10px;
+            margin-right: 8px;
+            transition: .4s;
+            cursor: pointer;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+
+        /* 智能排序控件 */
+        .sort-control {
+            background-color: #fff;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sort-label {
+            font-size: 14px;
+            color: #666;
+            margin-right: 8px;
+        }
+
+        .sort-select {
+            flex: 1;
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+
+        /* 结果列表 */
+        .results-list {
+            background-color: #fff;
+            margin-bottom: 60px; /* 为底部推荐栏留出空间 */
+        }
+
+        .result-item {
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .result-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+        }
+
+        .relevance-stars {
+            margin-left: 8px;
+            color: #ff9800;
+            font-size: 14px;
+        }
+
+        .result-snippet {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .snippet-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .snippet-highlight {
+            background-color: #fff9c4;
+            padding: 0 2px;
+        }
+
+        .snippet-highlight.high {
+            background-color: #ffccbc;
+            color: #d84315;
+            font-weight: 500;
+        }
+
+        .result-metadata {
+            display: none; /* 默认隐藏，点击展开 */
+            margin-top: 12px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .metadata-item {
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        .result-actions {
+            display: flex;
+            margin-top: 8px;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            color: #2196F3;
+            background: none;
+            border: none;
+            padding: 4px 8px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+
+        .action-button i {
+            margin-right: 4px;
+            font-size: 16px;
+        }
+
+        .expand-toggle {
+            font-size: 13px;
+            color: #2196F3;
+            background: none;
+            border: none;
+            padding: 4px 0;
+            cursor: pointer;
+        }
+
+        /* 底部推荐栏 */
+        .recommendation-panel {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            padding: 12px 16px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #eee;
+            z-index: 90;
+        }
+
+        .recommendation-label {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .recommendation-tags {
+            display: flex;
+            overflow-x: auto;
+            gap: 8px;
+            padding-bottom: 4px;
+        }
+
+        .recommendation-tag {
+            white-space: nowrap;
+            padding: 6px 12px;
+            background-color: #e3f2fd;
+            color: #2196F3;
+            border-radius: 16px;
+            font-size: 13px;
+        }
+
+        /* 操作栏 */
+        .action-bar {
+            position: fixed;
+            bottom: 70px;
+            right: 16px;
+            z-index: 95;
+        }
+
+        .action-fab {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #2196F3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 8px rgba(33, 150, 243, 0.4);
+            cursor: pointer;
+        }
+
+        .action-menu {
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            width: 120px;
+            display: none;
+        }
+
+        .action-menu.active {
+            display: block;
+        }
+
+        .action-menu-item {
+            padding: 10px 16px;
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .action-menu-item i {
+            margin-right: 8px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* 片段预览浮层 */
+        .preview-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            display: none;
+        }
+
+        .preview-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-content {
+            width: 90%;
+            max-height: 80%;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .preview-title {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .preview-close {
+            font-size: 20px;
+            color: #666;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .preview-breadcrumb {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .preview-text {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .preview-related {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+
+        .preview-related-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .preview-related-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .preview-related-item {
+            font-size: 13px;
+            padding: 6px 12px;
+            background-color: #f5f5f5;
+            border-radius: 16px;
+            color: #333;
+        }
+        
+        /* 术语解释卡片 */
+        .term-explanation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 150;
+        }
+        
+        .term-explanation.active {
+            transform: translateY(0);
+        }
+        
+        .term-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .term-close {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .term-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+        }
+    </style>
+    <!-- 使用CDN加载Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 搜索状态栏 -->
+    <div class="search-status">
+        <div class="search-keyword">
+            <div class="search-keyword-text">当前搜索：<span class="keyword-highlight">细则</span></div>
+            <button class="modify-search"><i class="fas fa-edit"></i> 修改</button>
+        </div>
+        <div class="search-count">共 57 条结果</div>
+    </div>
+
+    <!-- 筛选栏切换按钮 -->
+    <button class="filter-toggle">
+        高级筛选 <i class="fas fa-chevron-down"></i>
+    </button>
+
+    <!-- 筛选栏 -->
+    <div class="filter-bar">
+        <div class="filter-group">
+            <label class="filter-label">关键词组合</label>
+            <div class="filter-options">
+                <div class="filter-option active">且（AND）</div>
+                <div class="filter-option">或（OR）</div>
+            </div>
+        </div>
+        
+        <div class="filter-group">
+            <label class="filter-label">搜索范围</label>
+            <div class="filter-options">
+                <div class="filter-option active">全文</div>
+                <div class="filter-option">仅标题</div>
+                <div class="filter-option">仅条款</div>
+            </div>
+        </div>
+        
+        <div class="filter-group">
+            <label class="filter-label">精确匹配</label>
+            <div class="toggle-switch">
+                <input type="checkbox" id="exact-match">
+                <label class="toggle-slider" for="exact-match"></label>
+                <span>仅显示精确匹配结果</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 智能排序控件 -->
+    <div class="sort-control">
+        <div class="sort-label">排序方式：</div>
+        <select class="sort-select">
+            <option value="relevance">按相关度</option>
+            <option value="date">按最新更新</option>
+            <option value="citations">按引用量</option>
+        </select>
+    </div>
+
+    <!-- 结果列表 -->
+    <div class="results-list">
+        <!-- 结果项1 -->
+        <div class="result-item">
+            <div class="result-title">
+                金融机构反洗钱管理办法实施<span class="keyword-highlight">细则</span>
+                <span class="relevance-stars">⭐⭐⭐</span>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    第三条 本<span class="snippet-highlight high">细则</span>所称金融机构是指在中华人民共和国境内依法设立的从事金融业务的政策性银行、商业银行、信用合作社等吸收公众存款的金融机构...
+                </div>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    第十五条 金融机构应当根据本<span class="snippet-highlight high">细则</span>制定本机构的交易监测标准，并报中国人民银行备案。交易监测标准应当包括对现金交易、跨境交易、可疑交易的监测...
+                </div>
+            </div>
+            <div class="result-metadata">
+                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
+                <div class="metadata-item"><i class="fas fa-industry"></i> 金融行业</div>
+                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2022-06-15更新</div>
+            </div>
+            <div class="result-actions">
+                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
+                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
+                <button class="expand-toggle">查看更多</button>
+            </div>
+        </div>
+
+        <!-- 结果项2 -->
+        <div class="result-item">
+            <div class="result-title">
+                互联网金融风险管理<span class="keyword-highlight">细则</span>
+                <span class="relevance-stars">⭐⭐⭐</span>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    根据《互联网金融风险管理规定》制定本<span class="snippet-highlight high">细则</span>，旨在规范互联网金融业务风险管理工作，防范系统性金融风险...
+                </div>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    第八条 本<span class="snippet-highlight high">细则</span>适用于经金融监管部门批准设立的开展互联网金融业务的各类金融机构以及互联网金融平台...
+                </div>
+            </div>
+            <div class="result-metadata">
+                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
+                <div class="metadata-item"><i class="fas fa-industry"></i> 互联网金融</div>
+                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2023-03-28更新</div>
+            </div>
+            <div class="result-actions">
+                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
+                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
+                <button class="expand-toggle">查看更多</button>
+            </div>
+        </div>
+
+        <!-- 结果项3 -->
+        <div class="result-item">
+            <div class="result-title">
+                数据安全管理条例实施<span class="keyword-highlight">细则</span>
+                <span class="relevance-stars">⭐⭐</span>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    为贯彻落实《数据安全法》和《数据安全管理条例》，制定本<span class="snippet-highlight">细则</span>。本<span class="snippet-highlight">细则</span>适用于各类组织开展数据处理活动的安全管理...
+                </div>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    各行业主管部门可以依据本<span class="snippet-highlight">细则</span>，结合行业特点制定行业数据分类分级指南，指导、监督本行业组织开展数据分类分级工作...
+                </div>
+            </div>
+            <div class="result-metadata">
+                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
+                <div class="metadata-item"><i class="fas fa-industry"></i> 信息技术</div>
+                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2023-09-10更新</div>
+            </div>
+            <div class="result-actions">
+                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
+                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
+                <button class="expand-toggle">查看更多</button>
+            </div>
+        </div>
+
+        <!-- 结果项4 -->
+        <div class="result-item">
+            <div class="result-title">
+                个人信息保护法配套<span class="keyword-highlight">细则</span>
+                <span class="relevance-stars">⭐⭐</span>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    依据《中华人民共和国个人信息保护法》相关规定，制定本<span class="snippet-highlight">细则</span>。本<span class="snippet-highlight">细则</span>旨在规范个人信息处理活动，保障个人信息权益...
+                </div>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    重要数据处理者应当按照国家有关规定，制定<span class="snippet-highlight">细则</span>，明确重要数据范围、保护措施和责任人，并向所在地省级网信部门备案...
+                </div>
+            </div>
+            <div class="result-metadata">
+                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
+                <div class="metadata-item"><i class="fas fa-industry"></i> 数据保护</div>
+                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2023-07-22更新</div>
+            </div>
+            <div class="result-actions">
+                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
+                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
+                <button class="expand-toggle">查看更多</button>
+            </div>
+        </div>
+
+        <!-- 结果项5 -->
+        <div class="result-item">
+            <div class="result-title">
+                医疗器械监督管理<span class="keyword-highlight">细则</span>
+                <span class="relevance-stars">⭐⭐</span>
+            </div>
+            <div class="result-snippet">
+                <div class="snippet-text">
+                    本<span class="snippet-highlight">细则</span>是根据《医疗器械监督管理条例》制定的配套规范，旨在加强医疗器械全生命周期管理，保障公众健康安全...
+                </div>
+            </div>
+            <div class="result-metadata">
+                <div class="metadata-item"><i class="fas fa-map-marker-alt"></i> 全国</div>
+                <div class="metadata-item"><i class="fas fa-industry"></i> 医疗健康</div>
+                <div class="metadata-item"><i class="fas fa-calendar-alt"></i> 2024-01-15更新</div>
+            </div>
+            <div class="result-actions">
+                <button class="action-button"><i class="fas fa-balance-scale"></i> 对比</button>
+                <button class="action-button"><i class="far fa-star"></i> 收藏</button>
+                <button class="expand-toggle">查看更多</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 关联推荐底部栏 -->
+    <div class="recommendation-panel">
+        <div class="recommendation-label">相关推荐</div>
+        <div class="recommendation-tags">
+            <div class="recommendation-tag">实施细则</div>
+            <div class="recommendation-tag">管理办法</div>
+            <div class="recommendation-tag">监督细则</div>
+            <div class="recommendation-tag">金融监管</div>
+            <div class="recommendation-tag">细则制定</div>
+            <div class="recommendation-tag">规章制度</div>
+        </div>
+    </div>
+
+    <!-- 操作悬浮按钮 -->
+    <div class="action-bar">
+        <div class="action-fab">
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+        <div class="action-menu">
+            <div class="action-menu-item">
+                <i class="fas fa-download"></i> 导出结果
+            </div>
+            <div class="action-menu-item">
+                <i class="fas fa-balance-scale"></i> 对比模式
+            </div>
+            <div class="action-menu-item">
+                <i class="fas fa-chart-pie"></i> 分析结果
+            </div>
+        </div>
+    </div>
+
+    <!-- 片段预览浮层 -->
+    <div class="preview-modal">
+        <div class="preview-content">
+            <div class="preview-header">
+                <div class="preview-title">金融机构反洗钱管理办法实施细则</div>
+                <button class="preview-close">&times;</button>
+            </div>
+            <div class="preview-breadcrumb">
+                第一章 > 第三条
+            </div>
+            <div class="preview-text">
+                第三条 本<span class="snippet-highlight high">细则</span>所称金融机构是指在中华人民共和国境内依法设立的从事金融业务的政策性银行、商业银行、信用合作社等吸收公众存款的金融机构，以及保险公司、证券公司、期货公司、基金管理公司、信托投资公司等金融机构。
+                <br><br>
+                外国金融机构在中华人民共和国境内依法设立的分支机构，适用本<span class="snippet-highlight high">细则</span>对金融机构的规定。
+            </div>
+            <div class="preview-related">
+                <div class="preview-related-title">关联条款</div>
+                <div class="preview-related-items">
+                    <div class="preview-related-item">第五条</div>
+                    <div class="preview-related-item">第十二条</div>
+                    <div class="preview-related-item">第十五条</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 术语解释卡片 -->
+    <div class="term-explanation">
+        <div class="term-title">
+            <span>细则</span>
+            <button class="term-close">&times;</button>
+        </div>
+        <div class="term-content">
+            <p><strong>细则</strong>是指对法律、法规、规章等上位法的具体实施方法和步骤所做的细化规定，是落实上位法的配套规范性文件。</p>
+            <p>细则通常由主管部门依据上位法制定，具有较强的操作性和实务指导性，但法律效力低于上位法。</p>
+        </div>
+    </div>
+
+    <script>
+        // 筛选栏展开/收起
+        const filterToggle = document.querySelector('.filter-toggle');
+        const filterBar = document.querySelector('.filter-bar');
+
+        filterToggle.addEventListener('click', function() {
+            filterBar.classList.toggle('expanded');
+            filterToggle.classList.toggle('active');
+        });
+
+        // 筛选选项切换
+        const filterOptions = document.querySelectorAll('.filter-option');
+        filterOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // 获取同组的选项
+                const siblings = this.parentNode.querySelectorAll('.filter-option');
+                siblings.forEach(sib => sib.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 查看更多按钮切换显示元数据
+        const expandToggles = document.querySelectorAll('.expand-toggle');
+        expandToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const resultItem = this.closest('.result-item');
+                const metadata = resultItem.querySelector('.result-metadata');
+                
+                if (metadata.style.display === 'block') {
+                    metadata.style.display = 'none';
+                    this.textContent = '查看更多';
+                } else {
+                    metadata.style.display = 'block';
+                    this.textContent = '收起';
+                }
+            });
+        });
+
+        // 操作菜单
+        const actionFab = document.querySelector('.action-fab');
+        const actionMenu = document.querySelector('.action-menu');
+
+        actionFab.addEventListener('click', function() {
+            actionMenu.classList.toggle('active');
+        });
+
+        // 关闭操作菜单点击外部
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.action-bar

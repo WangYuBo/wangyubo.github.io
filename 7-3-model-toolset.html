@@ -1,0 +1,955 @@
+<title>模板工具包移动端页面</title>
+<type>text/html</type>
+undefined
+<content><!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板工具包</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #4CAF50;
+            --text-color: #333;
+            --bg-color: #f5f5f5;
+            --card-bg: #fff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-bottom: 70px; /* 为底部工具栏留出空间 */
+        }
+        
+        /* 全局导航 */
+        .global-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo img {
+            height: 32px;
+            width: auto;
+        }
+        
+        .nav-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-back {
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .nav-menu {
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        /* 筛选工具栏 */
+        .filter-toolbar {
+            margin-top: 56px;
+            padding: 16px;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 56px;
+            z-index: 900;
+        }
+        
+        .search-bar {
+            position: relative;
+            margin-bottom: 12px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 16px 12px 40px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-bar i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+        
+        .search-bar .voice-search {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .filter-tags {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-button {
+            padding: 8px 12px;
+            background-color: #e9e9e9;
+            border-radius: 16px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .filter-button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 模板陈列区 */
+        .templates-container {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .template-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .template-card-content {
+            padding: 16px;
+        }
+        
+        .template-thumbnail {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+            background-color: #f0f0f0;
+        }
+        
+        .template-type-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .template-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 12px 0 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .template-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .template-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #FF9800;
+        }
+        
+        .template-downloads {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .template-version {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: rgba(255,255,255,0.9);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        /* 底部工具栏 */
+        .bottom-toolbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+            padding: 0 16px;
+            z-index: 900;
+        }
+        
+        .toolbar-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .toolbar-button i {
+            font-size: 20px;
+        }
+        
+        .toolbar-button.active {
+            color: var(--primary-color);
+        }
+        
+        /* 浮动操作按钮 */
+        .floating-button {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+            cursor: pointer;
+            z-index: 800;
+        }
+        
+        .floating-button i {
+            font-size: 24px;
+        }
+        
+        /* 详情侧边栏 (移动端全屏覆盖) */
+        .template-details {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 1100;
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+        
+        .details-header {
+            position: sticky;
+            top: 0;
+            padding: 16px;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1110;
+        }
+        
+        .details-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .close-details {
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .details-content {
+            padding: 16px;
+            flex: 1;
+        }
+        
+        .video-container {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-container:after {
+            content: '视频加载中...';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+        }
+        
+        .video-container .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            cursor: pointer;
+        }
+        
+        .video-container .play-button i {
+            color: white;
+            font-size: 30px;
+        }
+        
+        .download-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .download-button {
+            padding: 12px 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .download-button.secondary {
+            background-color: #e9e9e9;
+            color: #333;
+        }
+        
+        .version-history {
+            margin: 20px 0;
+        }
+        
+        .history-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .version-item {
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .version-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .version-number {
+            font-weight: 600;
+        }
+        
+        .version-date {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .version-changes {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .related-templates {
+            margin-top: 20px;
+        }
+        
+        .related-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .related-list {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .related-item {
+            min-width: 160px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .related-item-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .related-item-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 筛选面板 */
+        .filter-panel {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: white;
+            z-index: 1100;
+            display: none;
+            flex-direction: column;
+        }
+        
+        .filter-panel-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .filter-panel-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .filter-panel-content {
+            padding: 16px;
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        .filter-section {
+            margin-bottom: 20px;
+        }
+        
+        .filter-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-option {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .filter-option.selected {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .filter-panel-footer {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .filter-panel-button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .filter-panel-button.reset {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .filter-panel-button.apply {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* 帮助弹窗 */
+        .help-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1200;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .help-content {
+            width: 85%;
+            max-height: 80%;
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .help-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .help-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .close-help {
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        .help-section {
+            margin-bottom: 16px;
+        }
+        
+        .help-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .help-section-content {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .contact-info {
+            background-color: #f0f0f0;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        
+        .contact-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        /* 加载动画 */
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #888;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 响应式布局调整 */
+        @media (min-width: 768px) {
+            .templates-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 全局导航 -->
+    <header class="global-nav">
+        <div class="nav-logo">
+            <i class="nav-back fas fa-arrow-left"></i>
+            <span class="nav-title">模板工具包</span>
+        </div>
+        <i class="nav-menu fas fa-bars"></i>
+    </header>
+    
+    <!-- 筛选工具栏 -->
+    <div class="filter-toolbar">
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="搜索模板...">
+            <i class="voice-search fas fa-microphone"></i>
+        </div>
+        <div class="filter-tags">
+            <button id="filter-btn" class="filter-button">
+                <i class="fas fa-filter"></i>
+                <span>筛选</span>
+            </button>
+            <button class="filter-button active">
+                <i class="fas fa-star"></i>
+                <span>热门</span>
+            </button>
+            <button class="filter-button">
+                <i class="fas fa-clock"></i>
+                <span>最新</span>
+            </button>
+            <button class="filter-button">
+                <i class="fas fa-download"></i>
+                <span>下载量</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- 模板陈列区 -->
+    <main class="templates-container">
+        <!-- 模板卡片1 -->
+        <div class="template-card" data-id="1">
+            <div class="template-type-badge">
+                <i class="fas fa-file-word"></i>
+                <span>Word</span>
+            </div>
+            <div class="template-version">v2.1.0</div>
+            <img src="/api/placeholder/400/200" alt="模板预览" class="template-thumbnail">
+            <div class="template-card-content">
+                <h3 class="template-title">企业项目计划书模板</h3>
+                <div class="template-meta">
+                    <div class="template-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.8</span>
+                    </div>
+                    <div class="template-downloads">
+                        <i class="fas fa-download"></i>
+                        <span>2,459</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 模板卡片2 -->
+        <div class="template-card" data-id="2">
+            <div class="template-type-badge">
+                <i class="fas fa-file-excel"></i>
+                <span>Excel</span>
+            </div>
+            <div class="template-version">v1.3.5</div>
+            <img src="/api/placeholder/400/200" alt="模板预览" class="template-thumbnail">
+            <div class="template-card-content">
+                <h3 class="template-title">财务报表分析工具</h3>
+                <div class="template-meta">
+                    <div class="template-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6</span>
+                    </div>
+                    <div class="template-downloads">
+                        <i class="fas fa-download"></i>
+                        <span>1,872</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 模板卡片3 -->
+        <div class="template-card" data-id="3">
+            <div class="template-type-badge">
+                <i class="fas fa-file-pdf"></i>
+                <span>PDF</span>
+            </div>
+            <div class="template-version">v3.0.1</div>
+            <img src="/api/placeholder/400/200" alt="模板预览" class="template-thumbnail">
+            <div class="template-card-content">
+                <h3 class="template-title">员工培训手册</h3>
+                <div class="template-meta">
+                    <div class="template-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.9</span>
+                    </div>
+                    <div class="template-downloads">
+                        <i class="fas fa-download"></i>
+                        <span>3,145</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 模板卡片4 -->
+        <div class="template-card" data-id="4">
+            <div class="template-type-badge">
+                <i class="fas fa-file-powerpoint"></i>
+                <span>PPT</span>
+            </div>
+            <div class="template-version">v1.0.8</div>
+            <img src="/api/placeholder/400/200" alt="模板预览" class="template-thumbnail">
+            <div class="template-card-content">
+                <h3 class="template-title">商业提案演示文稿</h3>
+                <div class="template-meta">
+                    <div class="template-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.5</span>
+                    </div>
+                    <div class="template-downloads">
+                        <i class="fas fa-download"></i>
+                        <span>1,356</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 模板卡片5 -->
+        <div class="template-card" data-id="5">
+            <div class="template-type-badge">
+                <i class="fas fa-file-alt"></i>
+                <span>文档</span>
+            </div>
+            <div class="template-version">v2.2.1</div>
+            <img src="/api/placeholder/400/200" alt="模板预览" class="template-thumbnail">
+            <div class="template-card-content">
+                <h3 class="template-title">合同标准条款库</h3>
+                <div class="template-meta">
+                    <div class="template-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7</span>
+                    </div>
+                    <div class="template-downloads">
+                        <i class="fas fa-download"></i>
+                        <span>2,784</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 加载更多指示器 -->
+        <div class="loading-container">
+            <div class="loading-spinner"></div>
+            <span>加载更多模板...</span>
+        </div>
+    </main>
+    
+    <!-- 底部工具栏 -->
+    <div class="bottom-toolbar">
+        <div class="toolbar-button active">
+            <i class="fas fa-home"></i>
+            <span>首页</span>
+        </div>
+        <div class="toolbar-button">
+            <i class="fas fa-th-large"></i>
+            <span>分类</span>
+        </div>
+        <div class="toolbar-button">
+            <i class="fas fa-star"></i>
+            <span>收藏</span>
+        </div>
+        <div class="toolbar-button" id="help-btn">
+            <i class="fas fa-question-circle"></i>
+            <span>帮助</span>
+        </div>
+    </div>
+    
+    <!-- 浮动操作按钮 -->
+    <div class="floating-button">
+        <i class="fas fa-plus"></i>
+    </div>
+    
+    <!-- 模板详情侧边栏 -->
+    <div class="template-details" id="template-details">
+        <div class="details-header">
+            <h2 class="details-title">企业项目计划书模板</h2>
+            <i class="close-details fas fa-times"></i>
+        </div>
+        <div class="details-content">
+            <div class="video-container">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            
+            <div class="download-options">
+                <button class="download-button">
+                    <i class="fas fa-download"></i>
+                    <span>下载 DOCX</span>
+                </button>
+                <button class="download-button secondary">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>PDF</span>
+                </button>
+                <button class="download-button secondary">
+                    <i class="fas fa-file-alt"></i>
+                    <span>TXT</span>
+                </button>
+            </div>
+            
+            <div class="version-history">
+                <h3 class="history-title">版本历史</h3>
+                <div class="version-item">
+                    <div class="version-item-header">
+                        <span class="version-number">V2.1.0</span>
+                        <span class="version-date">2025-03-15</span>
+                    </div>
+                    <p class="version-changes">更新了财务预算部分，新增了风险评估章节，优化了格式布局。</p>
+                </div>
+                <div class="version-item">
+                    <div class="version-item-header">
+                        <span class="version-number">V2.0.0</span>
+                        <span class="version-date">2025-01-22</span>
+                    </div>
+                    <p class="version-changes">全面改版，适配最新行业标准，增加了自动计算功能。</p>
+                </div>
+                <div class="version-item">
+                    <div class="version-item-header">
+                        <span class="version-number">V1.5.2</span>
+                        <span class="version-date">2024-11-08</span>
+                    </div>
+                    <p class="version-changes">修复了部分表格计算错误，调整了字体大小。</p>
+                </div>
+            </div>
+            
+            <div class="related-templates">
+                <h3 class="related-title">相关模板推荐</h3>
+                <div class="related-list">
+                    <div class="related-item">
+                        <h4 class="related-item-title">项目进度跟踪表</h4>
+                        <div class="related-item-meta">
+                            <span>Excel</span>
+                            <span>4.6 ★</span>
+                        </div>
+                    </div>
+                    <div class="related-item">
+                        <h4 class="related-item-title">项目总结报告</h4>
+                        <div class="related-item-meta">
+                            <span>Word</span>
+                            <span>4.8 ★</span>
+                        </div>
+                    </div>
+                    <div class="related-item">
+                        <h4 class="related-item-title">风险评估矩阵</h4>
+                        <div class="related-item-meta">
+                            <span>Excel</span>
+                            <span>4.7 ★</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 筛选面板 -->
+    <div class="filter-panel" id="filter-panel">
+        <div class="filter-panel-header">
+            <h2 class="filter-panel-title">筛选条件</h2>
+            <i class="fas fa-times" id="close-filter"></i>
+        </div>
+        <div class="filter-panel-content">
+            <div class="filter-section">
+                <h3 class="filter-section-title">文件类型</h3>
+                <div class="filter-options">
+                    <div class="filter-option selected">全部</div>
+                    <div class="filter-option">Word</div>
+                    <div class="filter-option">Excel</div>
+                    <div class="filter-option">PPT</div>
+                    <div class="filter-option">PDF</div>
+                    <div class="filter-option">文本文档</div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h3 class</content>
