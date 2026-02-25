@@ -4,12 +4,12 @@
  */
 
 [data-theme="dark"] {
-  /* Brand Colors (Lighter for dark backgrounds) */
-  --color-primary: #60a5fa;
-  --color-primary-dark: #3b82f6;
-  --color-primary-light: #93c5fd;
-  --color-accent: #22d3ee;
-  --color-accent-light: #67e8f9;
+  /* Magazine/Blog Colors (Dark mode optimized) */
+  --color-primary: #60A5FA;        /* Lighter blue for dark backgrounds */
+  --color-primary-dark: #3B82F6;   /* Medium blue */
+  --color-primary-light: #93C5FD;  /* Very light blue */
+  --color-accent: #FB923C;         /* Lighter orange for visibility */
+  --color-accent-dark: #F97316;    /* Medium orange */
 
   /* Neutral Colors (Inverted) */
   --color-gray-50: #18181b;
