@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "About"
-description: "Hey, this is 慕广陵."
+description: "嗨～我是钰博."
 header-img: "img/post-bg-rwd.jpg"
 ---
 
@@ -13,24 +13,17 @@ header-img: "img/post-bg-rwd.jpg"
 
 <!-- Chinese Version -->
 <div class="zh post-container">
-
     <!--copied from markdown -->
-    <blockquote><p>冰冻三尺 非一日之寒<br>
-    积土成山 非斯须之作</p></blockquote>
+    <blockquote>
+        <p>
+            冰冻三尺 非一日之寒<br />
+            积土成山 非斯须之作
+        </p>
+    </blockquote>
 
-    <p>Hey，我是<strong>钰博</strong>，一个主攻个人成长、心理的策划编辑。喜欢看书、深度唠嗑、爬山各种户外、散步。</p>
-
-
-    <p></p>
-    
-    <h5>Talks</h5>
-
-    <ul>
-        <li><a href="https://github.com">GitHub</a></li>
-        <li><a href="http://jekyll.com.cn/">jekyll</a></li>
-       
-        
-    </ul>
+    <p>
+        Hey，我是<strong>钰博</strong>，一个主攻个人成长、心理的策划编辑。喜欢看书、深度唠嗑、爬山各种户外、散步。
+    </p>
 </div>
 
 <!-- English Version -->
@@ -41,7 +34,7 @@ header-img: "img/post-bg-rwd.jpg"
     <p>Hi, I am <strong>Baiying Qiu</strong>，you can call me <strong>BY</strong>. I am an iOS software engineer and currently working in Xiamen</p>
 
     <p>This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 <a href="http://github.com/qiubaiying">Github·BY</a>.</p>
-    
+
     <p>I am a sports enthusiast, I like fitness, running and boxing.</p>
 
     <h5>Talks</h5>
@@ -62,18 +55,18 @@ header-img: "img/post-bg-rwd.jpg"
     var $select = document.querySelector("select");
 
     // bind hashchange event
-    window.addEventListener('hashchange', _render);
+    window.addEventListener("hashchange", _render);
 
     // handle render
-    function _render(){
+    function _render() {
         var _hash = window.location.hash;
         // en
-        if(_hash == "#en"){
+        if (_hash == "#en") {
             $select.selectedIndex = 1;
             $en.style.display = "block";
             $zh.style.display = "none";
-        // zh by default
-        }else{
+            // zh by default
+        } else {
             // not trigger onChange, otherwise cause a loop call.
             $select.selectedIndex = 0;
             $zh.style.display = "block";
@@ -82,18 +75,14 @@ header-img: "img/post-bg-rwd.jpg"
     }
 
     // handle select change
-    function onLanChange(index){
-        if(index == 0){
-            window.location.hash = "#zh"
-        }else{
-            window.location.hash = "#en"
+    function onLanChange(index) {
+        if (index == 0) {
+            window.location.hash = "#zh";
+        } else {
+            window.location.hash = "#en";
         }
     }
 
     // init
     _render();
 </script>
-
-
- 
-
