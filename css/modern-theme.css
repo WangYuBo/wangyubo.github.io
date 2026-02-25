@@ -234,6 +234,44 @@ blockquote p:last-child {
   background: rgba(255, 255, 255, 0.95);
 }
 
+/* Navigation Links - Light Mode */
+.navbar-custom .nav > li > a {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.navbar-custom .nav > li > a:hover,
+.navbar-custom .nav > li > a:focus {
+  color: var(--color-primary);
+  background: transparent;
+}
+
+.navbar-custom .navbar-brand {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  transition: color var(--transition-fast);
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: var(--color-primary);
+}
+
+/* Mobile Menu Toggle */
+.navbar-custom .navbar-toggle {
+  border-color: var(--color-gray-300);
+}
+
+.navbar-custom .navbar-toggle .icon-bar {
+  background-color: var(--color-text-primary);
+}
+
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: var(--color-gray-100);
+  border-color: var(--color-primary);
+}
+
 /* Post Cards */
 .post-preview {
   background: var(--color-card);
