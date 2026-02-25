@@ -1,0 +1,290 @@
+/**
+ * Dark Mode Theme for 钰博的博客
+ * Activated via [data-theme="dark"] attribute on <html>
+ */
+
+[data-theme="dark"] {
+  /* Brand Colors (Lighter for dark backgrounds) */
+  --color-primary: #60a5fa;
+  --color-primary-dark: #3b82f6;
+  --color-primary-light: #93c5fd;
+  --color-accent: #22d3ee;
+  --color-accent-light: #67e8f9;
+
+  /* Neutral Colors (Inverted) */
+  --color-gray-50: #18181b;
+  --color-gray-100: #27272a;
+  --color-gray-200: #3f3f46;
+  --color-gray-300: #52525b;
+  --color-gray-400: #71717a;
+  --color-gray-500: #a1a1aa;
+  --color-gray-600: #d4d4d8;
+  --color-gray-700: #e4e4e7;
+  --color-gray-800: #f4f4f5;
+  --color-gray-900: #fafafa;
+
+  /* Text Colors */
+  --color-text-primary: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #9ca3af;
+  --color-link: #60a5fa;
+  --color-link-hover: #93c5fd;
+
+  /* Background Colors */
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-card: #1e293b;
+  --color-code-bg: #334155;
+
+  /* Shadows (Adjusted for dark mode) */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   Component Overrides for Dark Mode
+   ========================================== */
+
+[data-theme="dark"] .navbar-custom {
+  background: rgba(15, 23, 42, 0.9);
+  border-bottom-color: var(--color-gray-200);
+}
+
+[data-theme="dark"] .navbar-custom.is-fixed {
+  background: rgba(15, 23, 42, 0.95);
+}
+
+[data-theme="dark"] .post-preview {
+  background: var(--color-card);
+  border-color: var(--color-gray-200);
+}
+
+[data-theme="dark"] .post-preview:hover {
+  border-color: var(--color-gray-300);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] code {
+  background: var(--color-code-bg);
+  color: var(--color-gray-800);
+}
+
+[data-theme="dark"] pre {
+  background: var(--color-code-bg);
+  border-color: var(--color-gray-300);
+}
+
+[data-theme="dark"] blockquote {
+  background: var(--color-surface);
+  border-left-color: var(--color-primary);
+}
+
+[data-theme="dark"] .tags a,
+[data-theme="dark"] .tag {
+  background: var(--color-gray-200);
+  color: var(--color-gray-700);
+  border-color: var(--color-gray-300);
+}
+
+[data-theme="dark"] .tags a:hover,
+[data-theme="dark"] .tag:hover {
+  background: var(--color-primary);
+  color: var(--color-gray-900);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .pager li > a,
+[data-theme="dark"] .pager li > span {
+  background: var(--color-card);
+  border-color: var(--color-gray-200);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .pager li > a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-gray-900);
+}
+
+[data-theme="dark"] footer {
+  background: var(--color-surface);
+  border-top-color: var(--color-gray-200);
+}
+
+[data-theme="dark"] .short-about img {
+  border-color: var(--color-gray-300);
+}
+
+[data-theme="dark"] .short-about img:hover {
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .catalog-body {
+  border-left-color: var(--color-gray-200);
+}
+
+/* Navigation links in dark mode */
+[data-theme="dark"] .navbar-custom .nav > li > a {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .navbar-custom .nav > li > a:hover {
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .navbar-custom .navbar-brand {
+  color: var(--color-text-primary);
+}
+
+/* Forms and inputs in dark mode */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background: var(--color-gray-200);
+  border-color: var(--color-gray-300);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: var(--color-primary);
+  background: var(--color-gray-100);
+}
+
+/* Tables in dark mode */
+[data-theme="dark"] table {
+  border-color: var(--color-gray-200);
+}
+
+[data-theme="dark"] th {
+  background: var(--color-gray-200);
+  color: var(--color-text-primary);
+  border-color: var(--color-gray-300);
+}
+
+[data-theme="dark"] td {
+  border-color: var(--color-gray-200);
+}
+
+/* HR in dark mode */
+[data-theme="dark"] hr {
+  border-color: var(--color-gray-200);
+}
+
+/* ==========================================
+   Dark Mode Toggle Button
+   ========================================== */
+
+.theme-toggle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px;
+  margin-left: 8px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background: var(--color-gray-100);
+}
+
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-text-secondary);
+  transition: all var(--transition-base);
+}
+
+.theme-toggle:hover svg {
+  fill: var(--color-text-primary);
+  transform: rotate(15deg);
+}
+
+/* Hide sun in dark mode, moon in light mode */
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: none;
+}
+
+[data-theme="light"] .theme-toggle .moon-icon,
+:root:not([data-theme]) .theme-toggle .moon-icon {
+  display: none;
+}
+
+/* ==========================================
+   Smooth Theme Transition
+   ========================================== */
+
+body {
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+a, .post-preview, .tags a, .tag, .btn, .navbar-custom {
+  transition: all var(--transition-base);
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* ==========================================
+   Accessibility - Prefers Color Scheme
+   ========================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* Apply dark mode variables if user hasn't set preference */
+    --color-primary: #60a5fa;
+    --color-text-primary: #f9fafb;
+    --color-bg: #0f172a;
+    --color-surface: #1e293b;
+    --color-card: #1e293b;
+    /* etc. - full dark theme variables */
+  }
+}
+
+/* ==========================================
+   Syntax Highlighting for Dark Mode
+   ========================================== */
+
+[data-theme="dark"] .highlight {
+  background: var(--color-code-bg);
+  color: #e4e4e7;
+}
+
+[data-theme="dark"] .highlight .c,
+[data-theme="dark"] .highlight .cm,
+[data-theme="dark"] .highlight .c1 {
+  color: #94a3b8; /* Comments */
+}
+
+[data-theme="dark"] .highlight .k,
+[data-theme="dark"] .highlight .kd,
+[data-theme="dark"] .highlight .kn {
+  color: #c084fc; /* Keywords */
+}
+
+[data-theme="dark"] .highlight .s,
+[data-theme="dark"] .highlight .s1,
+[data-theme="dark"] .highlight .s2 {
+  color: #86efac; /* Strings */
+}
+
+[data-theme="dark"] .highlight .mi,
+[data-theme="dark"] .highlight .mf {
+  color: #fbbf24; /* Numbers */
+}
+
+[data-theme="dark"] .highlight .nf {
+  color: #60a5fa; /* Function names */
+}
+
+[data-theme="dark"] .highlight .nx {
+  color: #f9fafb; /* Variables */
+}

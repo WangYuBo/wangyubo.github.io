@@ -1,0 +1,518 @@
+/**
+ * Modern Theme for 钰博的博客
+ * Progressive enhancement layer for contemporary design
+ * Compatible with GitHub Pages (vanilla CSS only)
+ */
+
+/* ==========================================
+   CSS Custom Properties (Design Tokens)
+   ========================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-accent: #06b6d4;
+  --color-accent-light: #22d3ee;
+
+  /* Neutral Colors (Warm Grays) */
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+
+  /* Text Colors */
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
+
+  /* Background Colors */
+  --color-bg: #ffffff;
+  --color-surface: #f9fafb;
+  --color-card: #ffffff;
+  --color-code-bg: #f3f4f6;
+
+  /* Typography */
+  --font-size-base: 17px;
+  --line-height-base: 1.8;
+  --line-height-heading: 1.3;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Noto Sans SC", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", SimSun, sans-serif;
+  --font-family-heading: var(--font-family-base);
+  --font-family-code: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
+
+  /* Font Sizes (Modular Scale 1.25) */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 17px */
+  --text-lg: 1.125rem;   /* 19px */
+  --text-xl: 1.25rem;    /* 21px */
+  --text-2xl: 1.563rem;  /* 26px */
+  --text-3xl: 1.953rem;  /* 33px */
+  --text-4xl: 2.441rem;  /* 41px */
+  --text-5xl: 3.052rem;  /* 51px */
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 17px */
+  --space-5: 1.25rem;   /* 21px */
+  --space-6: 1.5rem;    /* 25px */
+  --space-8: 2rem;      /* 34px */
+  --space-10: 2.5rem;   /* 42px */
+  --space-12: 3rem;     /* 51px */
+  --space-16: 4rem;     /* 68px */
+  --space-20: 5rem;     /* 85px */
+  --space-24: 6rem;     /* 102px */
+
+  /* Layout */
+  --content-width: 680px;
+  --container-width: 1280px;
+  --sidebar-width: 280px;
+  --nav-height: 64px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   Base Typography
+   ========================================== */
+
+html {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improved heading hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-top: 0;
+}
+
+h1 { font-size: var(--text-5xl); margin-bottom: var(--space-6); }
+h2 { font-size: var(--text-4xl); margin-bottom: var(--space-5); margin-top: var(--space-12); }
+h3 { font-size: var(--text-3xl); margin-bottom: var(--space-4); margin-top: var(--space-10); }
+h4 { font-size: var(--text-2xl); margin-bottom: var(--space-4); margin-top: var(--space-8); }
+h5 { font-size: var(--text-xl); margin-bottom: var(--space-3); margin-top: var(--space-6); }
+h6 { font-size: var(--text-base); margin-bottom: var(--space-3); margin-top: var(--space-6); font-weight: 600; }
+
+/* Responsive heading sizes */
+@media (max-width: 768px) {
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+}
+
+/* Paragraphs and content */
+p {
+  margin-bottom: 1.75rem;
+  color: var(--color-text-primary);
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+.post-container a:not(.btn) {
+  border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.post-container a:not(.btn):hover {
+  border-bottom-color: var(--color-link-hover);
+}
+
+/* Lists */
+ul, ol {
+  margin-bottom: 1.75rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Code */
+code {
+  font-family: var(--font-family-code);
+  font-size: 0.9em;
+  background: var(--color-code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+}
+
+pre {
+  background: var(--color-code-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  overflow-x: auto;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+  border: 1px solid var(--color-gray-200);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-surface);
+  padding: var(--space-6);
+  margin: var(--space-8) 0;
+  border-radius: var(--radius-md);
+  font-style: normal;
+  color: var(--color-text-secondary);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================
+   Modern Components
+   ========================================== */
+
+/* Navigation Bar */
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.navbar-custom.is-fixed {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Post Cards */
+.post-preview {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  border: 1px solid var(--color-gray-100);
+}
+
+.post-preview:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-gray-200);
+}
+
+.post-title {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .post-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+.post-subtitle {
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+}
+
+.post-meta {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--space-4);
+}
+
+.post-content-preview {
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  margin-top: var(--space-4);
+}
+
+/* Tags */
+.tags a, .tag {
+  display: inline-block;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  margin-right: var(--space-2);
+  margin-bottom: var(--space-2);
+  transition: all var(--transition-fast);
+  border: 1px solid var(--color-gray-200);
+}
+
+.tags a:hover, .tag:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Header */
+.intro-header {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.intro-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+  z-index: 1;
+}
+
+.intro-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.site-heading h1,
+.post-heading h1 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-size: var(--text-5xl);
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .site-heading h1,
+  .post-heading h1 {
+    font-size: var(--text-3xl);
+  }
+}
+
+.site-heading .subheading,
+.post-heading .subheading {
+  color: rgba(255,255,255,0.95);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Sidebar */
+.sidebar-container {
+  padding-top: var(--space-8);
+}
+
+.sidebar-container h5 {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  color: var(--color-text-primary);
+}
+
+.short-about {
+  margin-top: var(--space-6);
+}
+
+.short-about img {
+  border-radius: var(--radius-full);
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom: var(--space-4);
+  border: 3px solid var(--color-gray-100);
+  transition: all var(--transition-base);
+}
+
+.short-about img:hover {
+  transform: scale(1.05);
+  border-color: var(--color-primary);
+}
+
+/* Buttons */
+.btn {
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--transition-base);
+  border: none;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Pagination */
+.pager li > a,
+.pager li > span {
+  background: var(--color-card);
+  border: 1px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: var(--space-4) var(--space-6);
+  transition: all var(--transition-base);
+}
+
+.pager li > a:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Footer */
+footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-gray-200);
+  padding: var(--space-12) 0;
+  margin-top: var(--space-16);
+}
+
+/* Table of Contents */
+.side-catalog {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-6));
+}
+
+.catalog-body {
+  border-left: 2px solid var(--color-gray-200);
+  padding-left: var(--space-4);
+}
+
+.catalog-body li {
+  margin-bottom: var(--space-2);
+}
+
+.catalog-body a {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+
+.catalog-body a:hover,
+.catalog-body a.active {
+  color: var(--color-primary);
+}
+
+/* ==========================================
+   Utility Classes
+   ========================================== */
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.rounded {
+  border-radius: var(--radius-md);
+}
+
+.shadow {
+  box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   Responsive Utilities
+   ========================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --font-size-base: 16px;
+  }
+
+  .post-preview {
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .intro-header {
+    min-height: 250px;
+  }
+}
+
+/* ==========================================
+   Print Styles
+   ========================================== */
+
+@media print {
+  .navbar-custom,
+  .sidebar-container,
+  footer,
+  .pager {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
