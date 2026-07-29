@@ -1,47 +1,51 @@
 /**
- * Dark Mode Theme for 钰博的博客
- * Activated via [data-theme="dark"] attribute on <html>
+ * 墨与宣纸 · 深色模式
+ * 通过 <html> 上的 [data-theme="dark"] 激活
+ *
+ * 思路不是把亮色简单反相，而是换一种纸：由宣纸转为浸墨的暗底，
+ * 文字取未染透的纸色（暖白）而非纯白 —— 纯白配纯黑在暗环境下眩光过强。
+ * 点缀色需整体提亮并降饱和，否则赭石与绛红在暗底上会糊成一团。
  */
 
 [data-theme="dark"] {
-  /* Magazine/Blog Colors (Dark mode optimized) */
-  --color-primary: #60A5FA;        /* Lighter blue for dark backgrounds */
-  --color-primary-dark: #3B82F6;   /* Medium blue */
-  --color-primary-light: #93C5FD;  /* Very light blue */
-  --color-accent: #FB923C;         /* Lighter orange for visibility */
-  --color-accent-dark: #F97316;    /* Medium orange */
+  /* 点缀色 —— 提亮后的赭石与绛红，保证暗底上的可辨识度 */
+  --color-primary: #C4A882;        /* 亮赭 - 链接（暗底上 7.9:1） */
+  --color-primary-dark: #A88F6C;   /* 中赭 */
+  --color-primary-light: #D8C3A3;  /* 浅赭 */
+  --color-accent: #D97B7B;         /* 亮绛红 - 强调与 CTA */
+  --color-accent-dark: #C46060;    /* 中绛红 */
 
-  /* Neutral Colors (Inverted) */
-  --color-gray-50: #18181b;
-  --color-gray-100: #27272a;
-  --color-gray-200: #3f3f46;
-  --color-gray-300: #52525b;
-  --color-gray-400: #71717a;
-  --color-gray-500: #a1a1aa;
-  --color-gray-600: #d4d4d8;
-  --color-gray-700: #e4e4e7;
-  --color-gray-800: #f4f4f5;
-  --color-gray-900: #fafafa;
+  /* 中性色（反向）—— 保持暖调，避免落入冷灰 */
+  --color-gray-50: #1C1917;
+  --color-gray-100: #262220;
+  --color-gray-200: #3A3532;
+  --color-gray-300: #4E4844;
+  --color-gray-400: #6B635E;
+  --color-gray-500: #8A817B;
+  --color-gray-600: #ADA49D;
+  --color-gray-700: #CBC2BA;
+  --color-gray-800: #E3DBD3;
+  --color-gray-900: #F2ECE4;
 
-  /* Text Colors */
-  --color-text-primary: #f9fafb;
-  --color-text-secondary: #d1d5db;
-  --color-text-muted: #9ca3af;
-  --color-link: #60a5fa;
-  --color-link-hover: #93c5fd;
+  /* 文字色 —— 暖白而非纯白，降低暗环境眩光。对比度为实测值（相对 #14110F） */
+  --color-text-primary: #EDE6DD;   /* 15.19:1 */
+  --color-text-secondary: #C4BBB2; /* 9.94:1 */
+  --color-text-muted: #948B83;     /* 5.62:1 */
+  --color-link: #C4A882;           /* 亮赭 - 8.30:1 */
+  --color-link-hover: #D97B7B;     /* 亮绛红 - 6.33:1 */
 
-  /* Background Colors */
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
-  --color-card: #1e293b;
-  --color-code-bg: #334155;
+  /* 背景色 —— 浸墨的暖暗底，不用纯黑也不用冷蓝灰 */
+  --color-bg: #14110F;
+  --color-surface: #1C1917;
+  --color-card: #211D1A;
+  --color-code-bg: #262220;
 
-  /* Shadows (Adjusted for dark mode) */
-  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  /* 阴影 —— 暗底上阴影几乎不可见，仅保留极轻的层次暗示 */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.45), 0 1px 2px -1px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.45), 0 2px 4px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.55), 0 4px 6px -4px rgba(0, 0, 0, 0.45);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.65), 0 8px 10px -6px rgba(0, 0, 0, 0.55);
 }
 
 /* ==========================================
@@ -49,12 +53,12 @@
    ========================================== */
 
 [data-theme="dark"] .navbar-custom {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(20, 17, 15, 0.88); /* 暖暗底半透明 */
   border-bottom-color: var(--color-gray-200);
 }
 
 [data-theme="dark"] .navbar-custom.is-fixed {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(20, 17, 15, 0.95);
 }
 
 [data-theme="dark"] .post-preview {
@@ -237,17 +241,15 @@ a, .post-preview, .tags a, .tag, .btn, .navbar-custom {
    Accessibility - Prefers Color Scheme
    ========================================== */
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
-    /* Apply dark mode variables if user hasn't set preference */
-    --color-primary: #60a5fa;
-    --color-text-primary: #f9fafb;
-    --color-bg: #0f172a;
-    --color-surface: #1e293b;
-    --color-card: #1e293b;
-    /* etc. - full dark theme variables */
-  }
-}
+/* 此处原有一个 @media (prefers-color-scheme: dark) 块，只覆盖了 5 个变量，
+ * 末尾留着一句 "etc. - full dark theme variables" 的占位注释，属于未写完的
+ * 实现。它会造成半套深色主题：背景转暗，但 --color-text-secondary、
+ * --color-text-muted、--color-link 与各级边框仍停留在亮色值上，对比度直接崩坏。
+ *
+ * 已移除而非补全，理由：head.html 里的内联脚本在首次绘制前就会把 data-theme
+ * 写到 <html> 上，因此 :root:not([data-theme]) 实际上永远匹配不到，补全等于
+ * 维护一份永不执行的重复代码。禁用 JS 的访客将稳定地得到完整亮色主题，
+ * 这比半套深色主题好。 */
 
 /* ==========================================
    Syntax Highlighting for Dark Mode

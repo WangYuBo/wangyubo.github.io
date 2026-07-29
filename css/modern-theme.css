@@ -1,60 +1,73 @@
 /**
- * Modern Theme for 钰博的博客
- * Progressive enhancement layer for contemporary design
- * Compatible with GitHub Pages (vanilla CSS only)
- * Design System: Magazine/Blog optimized (UI/UX Pro Max)
- */
-
-/* ==========================================
-   Google Fonts - Optimized for Readability
-   ========================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+ * 墨与宣纸 —— 钰博的博客主题层
+ * Progressive enhancement layer, vanilla CSS only (GitHub Pages 兼容)
+ *
+ * 设计语言：宣纸暖底 + 墨色文字 + 赭石/绛红点缀，服务于中文长文阅读。
+ *
+ * 字体策略：全部使用系统字体栈，不加载任何 Web 字体。
+ *   原因一：fonts.googleapis.com 在中国大陆不可达，CSS @import 会串行阻塞
+ *           渲染直到超时，而站点读者主要在国内。
+ *   原因二：中文字体文件动辄数百 KB 至数 MB，与纯文字博客的性能目标冲突。
+ *   原因三：拉丁字体（如 Lexend / Source Sans 3）不含汉字字形，中文本就会
+ *           回落到系统字体——代价全付，收益为零。
+ *   标题用系统宋体，正文用系统黑体，符合中文阅读习惯。
+ *
+ * ========================================== */
 
 /* ==========================================
    CSS Custom Properties (Design Tokens)
    ========================================== */
 
 :root {
-  /* Magazine/Blog Color Palette - Optimized for editorial content */
-  --color-primary: #3B82F6;        /* Clear blue - for links, title emphasis */
-  --color-primary-dark: #2563EB;   /* Darker blue - for hover states */
-  --color-primary-light: #60A5FA;  /* Light blue - for secondary elements */
-  --color-accent: #F97316;         /* Orange - for CTA buttons */
-  --color-accent-dark: #EA580C;    /* Darker orange - for CTA hover */
+  /* 点缀色 —— 赭石与绛红，取自传统设色，低饱和不抢文字 */
+  --color-primary: #6B5A47;        /* 深赭 - 链接（宣纸底上 5.6:1，达 AA） */
+  --color-primary-dark: #55483A;   /* 更深赭 - 悬停 */
+  --color-primary-light: #7C6A55;  /* 赭石 - 次级元素、分隔标记 */
+  --color-accent: #8C3A3A;         /* 绛红 - 强调与 CTA */
+  --color-accent-dark: #6E2C2C;    /* 深绛 - CTA 悬停 */
 
-  /* Editorial Neutral Colors */
-  --color-gray-50: #F8FAFC;
-  --color-gray-100: #F1F5F9;
-  --color-gray-200: #E2E8F0;
-  --color-gray-300: #CBD5E1;
-  --color-gray-400: #94A3B8;
-  --color-gray-500: #64748B;
-  --color-gray-600: #475569;
-  --color-gray-700: #334155;
-  --color-gray-800: #1E293B;
-  --color-gray-900: #0F172A;
+  /* 中性色 —— 暖灰梯度，自宣纸至墨 */
+  --color-gray-50: #FAF8F5;
+  --color-gray-100: #F5F1EA;
+  --color-gray-200: #E7E0D6;
+  --color-gray-300: #D6CCBE;
+  --color-gray-400: #A8A099;
+  --color-gray-500: #78716C;
+  --color-gray-600: #57534E;
+  --color-gray-700: #44403C;
+  --color-gray-800: #292524;
+  --color-gray-900: #1C1917;
 
-  /* Text Colors - WCAG AA compliant */
-  --color-text-primary: #1E293B;   /* slate-800 - 4.5:1 contrast ratio */
-  --color-text-secondary: #475569; /* slate-600 - enhanced readability */
-  --color-text-muted: #64748B;     /* slate-500 - for meta info */
-  --color-link: #3B82F6;
-  --color-link-hover: #2563EB;
+  /* 文字色 —— 对比度为实测值（相对 --color-bg #FAF8F5），均超 WCAG AA */
+  --color-text-primary: #1C1917;   /* 墨色 - 16.50:1 */
+  --color-text-secondary: #57534E; /* 次文 - 7.20:1 */
+  --color-text-muted: #6E6762;     /* 元信息 - 5.24:1（留出余量，见下） */
+  --color-link: #6B5A47;           /* 深赭 - 6.23:1 */
+  --color-link-hover: #8C3A3A;     /* 绛红 - 7.12:1 */
+  /* 注：muted 原取 #78716C，实测仅 4.53:1，距 AA 及格线 4.50 只有 0.03 余量，
+     背景色任何微调都会跌破，故调深至 #6E6762。 */
 
-  /* Background Colors */
-  --color-bg: #F8FAFC;             /* Soft gray - reduced eye strain */
-  --color-surface: #F1F5F9;
-  --color-card: #FFFFFF;
-  --color-code-bg: #F1F5F9;
+  /* 背景色 —— 宣纸暖白，避免纯白的屏幕灼感 */
+  --color-bg: #FAF8F5;             /* 宣纸 */
+  --color-surface: #F5F1EA;
+  --color-card: #FFFDFA;
+  --color-code-bg: #F5F1EA;
 
-  /* Typography - Optimized for Chinese & English readability */
+  /* 排版 —— 为中文长文阅读优化 */
   --font-size-base: 17px;
-  --line-height-base: 1.8;
-  --line-height-heading: 1.3;
-  /* Corporate Trust pairing: Lexend (headings) + Source Sans 3 (body) */
-  --font-family-heading: 'Lexend', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  --font-family-base: 'Source Sans 3', -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --line-height-base: 1.85;        /* 中文无词间空隙，需比西文更宽的行距 */
+  --line-height-heading: 1.4;      /* 宋体标题字面较满，行高略高于西文 */
+  --letter-spacing-heading: 0.02em;/* 汉字标题微增字距，避免拥挤 */
+  --letter-spacing-body: 0.01em;
+
+  /* 字体栈 —— 纯系统字体，零网络请求，国内可用（理由见文件头） */
+  --font-family-heading: "Songti SC", "STSong", "Source Han Serif SC",
+                         "Noto Serif CJK SC", "SimSun", Georgia,
+                         "Times New Roman", serif;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                      "Hiragino Sans GB", "Source Han Sans SC",
+                      "Noto Sans CJK SC", "Microsoft YaHei",
+                      "Helvetica Neue", Arial, sans-serif;
   --font-family-code: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace;
 
   /* Font Sizes (Modular Scale 1.25) */
@@ -88,18 +101,18 @@
   --sidebar-width: 280px;
   --nav-height: 64px;
 
-  /* Shadows */
-  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  /* 阴影 —— 用暖墨色而非纯黑，避免在宣纸底上泛出冷灰 */
+  --shadow-xs: 0 1px 2px 0 rgba(28, 25, 23, 0.04);
+  --shadow-sm: 0 1px 3px 0 rgba(28, 25, 23, 0.06), 0 1px 2px -1px rgba(28, 25, 23, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(28, 25, 23, 0.07), 0 2px 4px -2px rgba(28, 25, 23, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(28, 25, 23, 0.08), 0 4px 6px -4px rgba(28, 25, 23, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(28, 25, 23, 0.09), 0 8px 10px -6px rgba(28, 25, 23, 0.05);
 
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  /* 圆角 —— 收敛为近乎直角，纸面与印章的语汇不需要大圆角 */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
   --radius-full: 9999px;
 
   /* Transitions */
@@ -125,12 +138,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Improved heading hierarchy */
+/* 标题层级 —— 系统宋体，正字距
+ * font-weight 取 700 而非 600：系统宋体（Songti SC / SimSun）只有 Regular 与
+ * Bold 两档实体字重，600 会触发浏览器合成伪粗体，笔画糊且不匀。 */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
   line-height: var(--line-height-heading);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--letter-spacing-heading);
   color: var(--color-text-primary);
   margin-top: 0;
 }
@@ -149,10 +164,15 @@ h6 { font-size: var(--text-base); margin-bottom: var(--space-3); margin-top: var
   h3 { font-size: var(--text-2xl); }
 }
 
-/* Paragraphs and content */
+/* 正文段落 —— 中文长文的段距需大于西文，段与段之间要能“喘气” */
 p {
   margin-bottom: 1.75rem;
   color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-body);
+  /* 中文没有词间空格，断行点极多，两端对齐反而制造不匀的字距，故不用 justify */
+  text-align: left;
+  /* 避免长英文/URL 撑破窄屏 */
+  overflow-wrap: break-word;
 }
 
 /* Links */
@@ -167,7 +187,7 @@ a:hover {
 }
 
 .post-container a:not(.btn) {
-  border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+  border-bottom: 1px solid rgba(107, 90, 71, 0.35); /* 赭石下划线 */
 }
 
 .post-container a:not(.btn):hover {
@@ -210,13 +230,20 @@ pre code {
 }
 
 /* Blockquotes */
+/* 引文 —— 本站以读书笔记、书评、诗歌为主，引文出现频次高。
+ * 不填底色、不加圆角：整块灰底会在长文里形成一段段“补丁”，打断阅读节奏。
+ * 改用一道细赭石竖线加缩进，并切换为宋体 —— 所引多为古籍与诗句，
+ * 宋体既贴合文本气质，也与正文黑体形成自然的引/述区分。 */
 blockquote {
-  border-left: 4px solid var(--color-primary);
-  background: var(--color-surface);
-  padding: var(--space-6);
+  border-left: 2px solid var(--color-primary-light);
+  background: transparent;
+  padding: var(--space-2) 0 var(--space-2) var(--space-6);
   margin: var(--space-8) 0;
-  border-radius: var(--radius-md);
+  border-radius: 0;
+  font-family: var(--font-family-heading);
   font-style: normal;
+  font-size: 1.02em;
+  line-height: 1.9;
   color: var(--color-text-secondary);
 }
 
@@ -230,7 +257,7 @@ blockquote p:last-child {
 
 /* Navigation Bar - Swiss Modernism inspired */
 .navbar-custom {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(250, 248, 245, 0.85); /* 宣纸色半透明，非纯白 */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-gray-200);
@@ -239,8 +266,8 @@ blockquote p:last-child {
 }
 
 .navbar-custom.is-fixed {
-  background: rgba(255, 255, 255, 0.90);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+  background: rgba(250, 248, 245, 0.94);
+  box-shadow: 0 4px 6px -1px rgba(28, 25, 23, 0.07);
 }
 
 /* Navigation Links - Light Mode */
@@ -282,49 +309,53 @@ blockquote p:last-child {
 }
 
 /* Post Cards - Magazine/Blog optimized design */
+/* 文章列表 —— 平铺于纸面，以界栏分隔，不做卡片与投影。
+ * 纸上的文章不会浮起来，投影与圆角卡片是 Material 的语汇，与本主题冲突。 */
 .post-preview {
-  background: var(--color-card);
-  border-radius: var(--radius-lg);
-  padding: var(--space-12) var(--space-10);
-  margin-bottom: var(--space-12);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08);
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--color-gray-200);
+  background: transparent;
+  padding: var(--space-10) 0 var(--space-10) var(--space-6);
+  margin-bottom: 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-gray-200); /* 界栏 */
   position: relative;
-  overflow: hidden;
+  transition: background-color var(--transition-base);
 }
 
-/* Subtle accent on hover - avoid layout shift */
+.post-preview:last-child {
+  border-bottom: 0;
+}
+
+/* 朱丝栏 —— 悬停时左侧浮出一道赭石竖线。
+ * 用 scaleY 而非改变宽度或外边距，不触发重排，列表不会抖动。 */
 .post-preview::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: var(--space-8);
+  bottom: var(--space-8);
   left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--color-primary);
+  width: 2px;
+  background: var(--color-primary-light);
   transform: scaleY(0);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: bottom;
+  transform-origin: top;
+  transition: transform var(--transition-base);
 }
 
 .post-preview:hover::before {
   transform: scaleY(1);
-  transform-origin: top;
 }
 
+/* 悬停仅以极浅的纸色变化作反馈，不位移、不投影 */
 .post-preview:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  transform: translateY(-4px);
-  border-color: var(--color-gray-300);
+  background-color: var(--color-gray-100);
 }
 
 .post-title {
+  font-family: var(--font-family-heading);
   font-size: var(--text-4xl);
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: var(--space-5);
-  letter-spacing: -0.03em;
+  line-height: 1.4;
+  margin-bottom: var(--space-4);
+  letter-spacing: var(--letter-spacing-heading);
   color: var(--color-text-primary);
 }
 
@@ -386,7 +417,8 @@ blockquote p:last-child {
   }
 }
 
-/* Hide HR separators on homepage - cards provide enough separation */
+/* 隐藏首页的 <hr>：分隔已由 .post-preview 的下边框（界栏）承担，
+   两者并存会出现双线。 */
 .postlist-container > hr {
   display: none;
 }
@@ -506,14 +538,16 @@ blockquote p:last-child {
   padding-bottom: var(--space-20);
 }
 
+/* 头图上的大标题。font-weight 由 800 降为 700：系统宋体无 800 实体字重，
+ * 会被合成为伪粗体，叠加文字投影后笔画更糊。 */
 .site-heading h1,
 .post-heading h1 {
-  color: white;
-  text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  color: #FAF8F5;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.45);
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: var(--space-6);
-  letter-spacing: -0.03em;
+  letter-spacing: var(--letter-spacing-heading);
 }
 
 @media (max-width: 768px) {
@@ -591,15 +625,16 @@ blockquote p:last-child {
 
 .btn-primary {
   background: var(--color-accent);
-  color: white;
-  box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
+  color: #FAF8F5;
+  box-shadow: 0 2px 4px rgba(140, 58, 58, 0.18); /* 绛红投影 */
 }
 
+/* 悬停只改颜色与投影，不做位移 —— 纸墨语汇讲究克制，
+   且元素“跳一下”在长文列表里会让视线反复重新定位。 */
 .btn-primary:hover {
   background: var(--color-accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
-  color: white;
+  box-shadow: 0 3px 8px rgba(140, 58, 58, 0.26);
+  color: #FAF8F5;
 }
 
 /* Pagination - Clean & Modern */
@@ -626,9 +661,8 @@ blockquote p:last-child {
 .pager li > a:hover {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+  color: #FAF8F5;
+  box-shadow: 0 3px 8px rgba(107, 90, 71, 0.26);
   text-decoration: none;
 }
 
@@ -761,11 +795,9 @@ button,
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Prevent layout shift on hover (no scale transforms) */
-.post-preview:hover {
-  /* Use shadow and border instead of scale */
-  transform: translateY(-3px); /* Vertical lift is acceptable */
-}
+/* 此处原有一条重复的 .post-preview:hover，注释声称“防止悬停位移”，
+ * 规则本身却写了 transform: translateY(-3px)，自相矛盾；且因位置靠后，
+ * 它会覆盖上方文章列表的悬停定义。已删除，悬停反馈统一由上方规则给出。 */
 
 /* ==========================================
    Print Styles
