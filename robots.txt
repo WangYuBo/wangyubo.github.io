@@ -1,0 +1,27 @@
+# robots.txt for muguangling.com
+#
+# 站点内容默认全部开放抓取。
+#
+# 注意：以下几个非博客页面需要从搜索结果中移除，它们靠页面内的
+#   <meta name="robots" content="noindex, nofollow">
+# 实现，而**不是**在这里 Disallow：
+#
+#   /7-1-query-law.html
+#   /7-3-model-toolset.html
+#   /8-3-1-contributor-hub.html
+#   /8-3-2-case-share-center.html
+#   /8-3-3-upload-case.html
+#   /n.html
+#
+# 原因：robots.txt 的 Disallow 阻止的是「抓取」，不是「收录」。一旦在此
+# 屏蔽，爬虫就再也读不到页面里的 noindex 标签，这些 URL 反而会以没有
+# 摘要的裸链接形式长期滞留在搜索结果中。两种手段并用会互相抵消。
+# 要让 noindex 生效，必须保持这些页面可被抓取。
+#
+# 待它们确认从索引中消失后，若想彻底屏蔽，再在此处添加 Disallow 不迟。
+
+User-agent: *
+Allow: /
+
+# 构建产物与本地工作目录，无需抓取
+Disallow: /logs/
