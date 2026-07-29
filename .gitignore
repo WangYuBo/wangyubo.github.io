@@ -37,3 +37,5 @@ _site
 # 本地工作产物，不参与站点构建
 _posts/chats/
 _posts/logs/
+logs/
+*.log
