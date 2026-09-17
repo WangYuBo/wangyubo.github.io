@@ -1,0 +1,19 @@
+# 自动生成，请勿手改。源：attention-book/web.yaml（跑 scripts/publish_web.py 重建）
+
+zh:
+  title: "夺回注意力：分心时代，知识工作者的认知科学与实践"
+  tagline: "用认知科学讲清楚：注意力如何运作、为何在现代工作中崩溃、怎样基于证据重建。写给被分心困扰的知识工作者。"
+  cta: "如果你读到这里，觉得这本书值得占一个书架位，欢迎通过博客告诉我——出版进度我会第一时间在那里更新。"
+  author: "钰博"
+  url: "/attention/"
+  alt_url: "/attention/en/"
+  cover: "img/attention-cover.jpg"
+
+en:
+  title: "Take Back Your Attention"
+  tagline: "The cognitive science of how attention works, why it collapses in modern work, and how to rebuild it on evidence — for knowledge workers who can't stop getting distracted."
+  cta: "If you've read this far and think it deserves a shelf, tell me via the blog — I'll post publication updates there first."
+  author: "YuBo Wang"
+  url: "/attention/en/"
+  alt_url: "/attention/"
+  cover: "img/attention-cover.jpg"

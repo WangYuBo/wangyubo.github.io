@@ -1,0 +1,121 @@
+---
+layout: default
+---
+
+{% comment %}
+书页布局。与 post.html 的两处关键差异：
+  1. 正文容器必须保留 `post-container` 类 —— _includes/footer.html 的
+     generateCatalog 写死取 $('div.post-container').find('h1,h2,h3,h4,h5,h6')，
+     侧边目录才出得来；同时必须提供 ul.catalog-body 作为挂载点。
+  2. 上一章/下一章不取 page.previous / page.next —— collection 文档的
+     previous/next 走的是整个 collection 的单一顺序，中英文会交错成一条链。
+     这里改用生成器算好写进 front matter 的 prev_url / next_url。
+
+配色一律走 modern-theme.css 的 CSS 变量，暗色模式自动跟随，不要硬编码颜色。
+{% endcomment %}
+
+{% assign is_en = false %}{% if page.lang == 'en' %}{% assign is_en = true %}{% endif %}
+{% if is_en %}
+  {% assign t_prev = "Previous chapter" %}
+  {% assign t_next = "Next chapter" %}
+  {% assign t_toc = "Contents" %}
+  {% assign t_switch = "中文" %}
+  {% assign t_note = "This is a free preview chapter from <em>Take Back Your Attention</em>. The complete book is coming." %}
+  {% assign t_stub = "This chapter isn't online yet" %}
+{% else %}
+  {% assign t_prev = "上一章" %}
+  {% assign t_next = "下一章" %}
+  {% assign t_toc = "目录" %}
+  {% assign t_switch = "English" %}
+  {% assign t_note = "本文是《夺回注意力》的试读章节，完整版即将出版。" %}
+  {% assign t_stub = "这一章还没有上线" %}
+{% endif %}
+
+{% include book-css.html %}
+
+<!-- 章页页头：紧凑一行，不放全幅封面大图（封面只留给目录页） -->
+<header class="book-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% if page.alt_url %}
+                <a class="book-lang-switch"
+                   href="{{ page.alt_url | prepend: site.baseurl }}">{{ t_switch }}</a>
+                {% endif %}
+                <a class="book-of"
+                   href="{{ page.book_url | prepend: site.baseurl }}">{{ page.book_title }}</a>
+                <div class="book-label">{{ page.chapter_label }}</div>
+                <h1>{{ page.title }}</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                {% if page.reading == 'stub' %}
+                    <p class="book-hook">{{ page.hook }}</p>
+                    <div class="book-cta">
+                        <h3>{{ t_stub }}</h3>
+                        {{ content }}
+                    </div>
+                {% else %}
+                    {{ content }}
+
+                    <p class="book-preview-note">{{ t_note }}</p>
+                {% endif %}
+
+                <ul class="pager book-pager">
+                    {% if page.prev_url != '' %}
+                    <li class="previous">
+                        <a href="{{ page.prev_url | prepend: site.baseurl }}"
+                           title="{{ page.prev_title }}">
+                            &larr; {{ t_prev }}<br>
+                            <span>{{ page.prev_title }}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li class="toc">
+                        <a href="{{ page.book_url | prepend: site.baseurl }}">{{ t_toc }}</a>
+                    </li>
+                    {% if page.next_url != '' %}
+                    <li class="next">
+                        <a href="{{ page.next_url | prepend: site.baseurl }}"
+                           title="{{ page.next_title }}">
+                            {{ t_next }} &rarr;<br>
+                            <span>{{ page.next_title }}</span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+
+    <!-- Side Catalog Container -->
+        {% if page.catalog %}
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        {% endif %}
+
+        </div>
+    </div>
+</article>

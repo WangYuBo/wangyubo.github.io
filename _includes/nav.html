@@ -19,7 +19,13 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
-                    {% for page in site.pages %}{% if page.title and page.title != 'Tags' and page.title != 'CLAUDE.md' %}
+                    {% comment %}
+                        自动导航：收录所有「有 title 的顶层 page」。
+                        nav: false 用于主动退出导航（如英文版目录页，
+                        它靠章页右上角的语言切换进入，不占导航位）。
+                        未写 nav 的页面不受影响 —— Liquid 里 nil != false 为真。
+                    {% endcomment %}
+                    {% for page in site.pages %}{% if page.title and page.nav != false and page.title != 'Tags' and page.title != 'CLAUDE.md' %}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                     </li>

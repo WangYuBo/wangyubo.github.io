@@ -95,6 +95,20 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 
+# 《夺回注意力》网页试读版。
+# 章节 md 由书仓库的 scripts/publish_web.py 生成（见 books/attention-book/web.yaml），
+# 站点端不要手改 _attention/ 下的文件。
+# URL 走 collection 默认模板 /:collection/:path/ 加上 pretty 的尾斜杠，
+# 即 _attention/02-selection.md → /attention/02-selection/、
+#    _attention/en/02-selection.md → /attention/en/02-selection/。
+collections:
+  attention:
+    output: true
+
+
+# ⚠️ 警告：下面这行 `---` 起是本文档的**第二份 YAML document**。
+# Jekyll 只解析第一份，所以 `---` 往下的配置（theme、friends…）从未生效过。
+# 新增配置一律写在这一行以上。
 ---
 layout:     keynote
 iframe:     "http://muguangling.com/2021/03/11/2021-03-05-long-distance-relationship/"

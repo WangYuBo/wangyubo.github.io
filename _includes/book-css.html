@@ -1,0 +1,131 @@
+<!--
+  《夺回注意力》书页样式（章页 + 目录页共用）。
+  配色一律走 modern-theme.css 的 CSS 变量，暗色模式自动跟随 —— 不要在这里硬编码颜色。
+  v1 先内联在页面里，等样式稳定再考虑并入 css/modern-theme.css。
+-->
+<style type="text/css">
+    /* ── 章页页头 ───────────────────────────────────────── */
+    .book-header {
+        padding: 96px 0 28px;
+        background: var(--color-surface);
+        border-bottom: 1px solid var(--color-gray-200);
+    }
+    .book-header .book-of {
+        display: inline-block;
+        font-size: 13px;
+        letter-spacing: .04em;
+        color: var(--color-primary-light);
+        margin-bottom: 10px;
+    }
+    .book-header .book-of:hover,
+    .book-header .book-of:focus { color: var(--color-link-hover); text-decoration: none; }
+    .book-header .book-label {
+        font-size: 15px;
+        color: var(--color-text-muted);
+        margin-bottom: 4px;
+    }
+    .book-header h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: var(--line-height-heading);
+        letter-spacing: var(--letter-spacing-heading);
+    }
+    .book-lang-switch {
+        float: right;
+        font-size: 13px;
+        color: var(--color-text-muted);
+    }
+
+    /* ── 试读章节（reading: stub）────────────────────────── */
+    .book-hook {
+        font-size: 19px;
+        line-height: 1.85;
+        color: var(--color-text-secondary);
+        border-left: 3px solid var(--color-primary-light);
+        padding-left: 18px;
+        margin: 4px 0 32px;
+    }
+    .book-cta {
+        background: var(--color-card);
+        border: 1px solid var(--color-gray-200);
+        border-radius: 4px;
+        padding: 22px 24px;
+        box-shadow: var(--shadow-sm);
+    }
+    .book-cta h3 { margin: 0 0 10px; font-size: 19px; }
+    .book-cta p:last-child { margin-bottom: 0; }
+
+    .book-preview-note {
+        margin-top: 44px;
+        padding-top: 16px;
+        border-top: 1px solid var(--color-gray-200);
+        font-size: 14px;
+        color: var(--color-text-muted);
+    }
+
+    /* ── 上一章 / 目录 / 下一章 ─────────────────────────── */
+    .book-pager { margin-top: 28px; }
+    .book-pager li { display: inline-block; }
+    .book-pager li.toc { margin: 0 10px; }
+    .book-pager li.toc a { font-size: 14px; }
+    .book-pager span { font-size: 13px; }
+
+    /* ── 目录页 ─────────────────────────────────────────── */
+    .book-hero {
+        display: flex;
+        gap: 26px;
+        align-items: flex-start;
+        margin: 4px 0 40px;
+    }
+    .book-hero img.book-cover {
+        width: 190px;
+        max-width: 40%;
+        height: auto;
+        border-radius: 3px;
+        box-shadow: var(--shadow-lg);
+    }
+    .book-hero-text { flex: 1; }
+    .book-hero-text .book-tagline {
+        font-size: 17px;
+        line-height: var(--line-height-base);
+        color: var(--color-text-secondary);
+        margin-bottom: 14px;
+    }
+    .book-hero-text .book-meta {
+        font-size: 14px;
+        color: var(--color-text-muted);
+    }
+    @media (max-width: 600px) {
+        .book-hero { display: block; }
+        .book-hero img.book-cover { width: 55%; max-width: none; margin-bottom: 20px; }
+    }
+
+    ul.book-toc { list-style: none; padding-left: 0; margin: 0 0 40px; }
+    ul.book-toc li.book-toc-item {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--color-gray-200);
+    }
+    ul.book-toc li.book-toc-item:first-child { border-top: 1px solid var(--color-gray-200); }
+    ul.book-toc .book-toc-label {
+        display: inline-block;
+        min-width: 4.6em;
+        font-size: 14px;
+        color: var(--color-text-muted);
+    }
+    ul.book-toc .book-toc-title {
+        font-size: 17px;
+        color: var(--color-link);
+    }
+    ul.book-toc a:hover .book-toc-title { color: var(--color-link-hover); }
+    ul.book-toc .book-toc-hook {
+        margin: 8px 0 0 4.6em;
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--color-text-muted);
+    }
+    ul.book-toc li.is-stub .book-toc-title { color: var(--color-text-secondary); }
+    @media (max-width: 600px) {
+        ul.book-toc .book-toc-label { display: block; min-width: 0; }
+        ul.book-toc .book-toc-hook { margin-left: 0; }
+    }
+</style>
