@@ -17,6 +17,8 @@ permalink: /attention/en/
     <div class="book-hero-text">
         <p class="book-tagline">{{ bk.title }}</p>
         <p class="book-meta">by {{ bk.author }} · English · free preview<br>11 chapters; the preface and Chapters 1–2 are online in full</p>
+        <!-- 对称入口，理由见 attention.md 同处注释 -->
+        <p class="book-lang-link"><a href="{{ bk.alt_url | prepend: site.baseurl }}">读中文版 →</a></p>
     </div>
 </div>
 

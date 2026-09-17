@@ -25,3 +25,9 @@ Allow: /
 
 # 构建产物与本地工作目录，无需抓取
 Disallow: /logs/
+
+# Sitemap：由 _config.yml 的 gems: [jekyll-sitemap] 生成。
+# 与上面的 noindex 不冲突 —— 那 6 个页面没有 YAML front matter，Jekyll 视作
+# 静态文件，不进 site.html_pages，而 jekyll-sitemap 只收录 pages 与 collection 文档，
+# 所以 sitemap 里不会出现它们。两种去索引手段不会互相抵消。
+Sitemap: https://muguangling.com/sitemap.xml

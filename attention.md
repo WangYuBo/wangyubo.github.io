@@ -19,6 +19,10 @@ permalink: /attention/
     <div class="book-hero-text">
         <p class="book-tagline">{{ bk.title }}</p>
         <p class="book-meta">{{ bk.author }} 著 · 中文 · 试读版<br>全书 11 章，其中前言与第 1、2 章全文公开</p>
+        <!-- 英文版的唯一入口。英文目录页是 nav: false（不占导航栏），
+             如果没有这一行，英文读者就只剩「点进某一章再看右上角切换」这一条路，
+             而导航项写的是中文，他们根本不会去点。 -->
+        <p class="book-lang-link"><a href="{{ bk.alt_url | prepend: site.baseurl }}">Read in English →</a></p>
     </div>
 </div>
 
